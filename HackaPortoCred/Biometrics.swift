@@ -9,11 +9,11 @@
 import UIKit
 
 struct Person {
-    let name: String
-    let email: String
-    let birthDate: Date
-    let cpf: String
-    let phoneNumber: String
+    var name: String
+    var email: String
+    var birthDate: Date
+    var cpf: String
+    var phoneNumber: String
 }
 
 class Biometrics {
