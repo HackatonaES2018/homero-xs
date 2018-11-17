@@ -34,6 +34,9 @@ class Biometrics {
         URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/user/authToken")!
     private var processCreateURL =
         URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/process/create/1")!
+    private var faceInsert: URL {
+        return URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/process/\(self.processId!)/faceInsert")!
+    }
     
     private var authToken: String?
     private var processId: String?
@@ -67,6 +70,11 @@ class Biometrics {
     
     func createUser(_ user: Person, completion: @escaping (Bool?, Error?) -> Void) {
         authenticate { status, error in
+            guard error == nil, status else {
+                completion(false, nil)
+                return
+            }
+            
             let headers = [
                 "Content-Type": "application/json",
                 "X-AcessoBio-APIKEY": "53C8D9A5-0C9C-494B-A4E2-DB089E73CC3B",
@@ -104,12 +112,40 @@ class Biometrics {
     }
     
     func uploadFacePhoto(_ image: UIImage, completion: @escaping (Bool?, Error?) -> Void) {
-//        guard let authToken = self.authToken else {
-//            fatalError("call createUser first!")
-//        }
-//
-//        let imageData = image.pngData()!
-//        let base64 = imageData.base64EncodedString(options: .lineLength64Characters)
+        let base64 = image
+            .resized(toWidth: 1024)
+            .pngData()!
+            .base64EncodedString(options: .lineLength64Characters)
+        
+        let headers = [
+            "Content-Type": "application/json",
+            "X-AcessoBio-APIKEY": "53C8D9A5-0C9C-494B-A4E2-DB089E73CC3B",
+            "X-Login": "INTEGRACAO.PORTOCRED",
+            "X-Password": "Integracao!2018",
+            "Authentication": self.authToken!
+            ]
+        
+        let parameters = ["imagebase64": base64] as [String : Any]
+        let postData = try! JSONSerialization.data(withJSONObject: parameters)
+        
+        let request = NSMutableURLRequest(url: self.faceInsert,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData
+        
+        let dataTask = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if error != nil {
+                completion(false, error)
+            } else {
+                let result = try! JSONSerialization.jsonObject(with: data!) as! [String: Any]
+                print(result)
+                completion(true, nil)
+            }
+        }
+        
+        dataTask.resume()
     }
     
     func uploadDocPhoto(_ image: UIImage, completion: @escaping (Bool?, Error?) -> Void) {
@@ -118,5 +154,15 @@ class Biometrics {
     
     func validate(completion: @escaping (Bool?, Error?) -> Void) {
         
+    }
+}
+
+extension UIImage {
+    func resized(toWidth width: CGFloat) -> UIImage {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()!
     }
 }
