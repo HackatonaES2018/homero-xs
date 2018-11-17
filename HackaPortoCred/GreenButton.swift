@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class GreenButton: UIButton {
     
     override init(frame: CGRect) {
