@@ -104,6 +104,7 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc func nextAction(sender: UIButton) {
         previousButton.isHidden = false
+        view.endEditing(true)
         if 0..<4 ~= sender.tag {
             tableView.scrollToRow(at: IndexPath(row: sender.tag + 1, section: 0), at: .bottom, animated: true)
         }
