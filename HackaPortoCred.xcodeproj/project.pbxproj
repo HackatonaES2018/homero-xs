@@ -18,6 +18,7 @@
 		8DB089C221A0814900BF1C0D /* RGInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089C121A0814900BF1C0D /* RGInputViewController.swift */; };
 		8DB089C421A081E000BF1C0D /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089C321A081E000BF1C0D /* FaceViewController.swift */; };
 		8DB089C621A081F700BF1C0D /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089C521A081F700BF1C0D /* ValidationViewController.swift */; };
+		8DB8A03B21A0A2F40056F4B6 /* GreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB8A03A21A0A2F40056F4B6 /* GreenButton.swift */; };
 		91B04CFD21A08E3F002511EF /* UISignUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B04CFC21A08E3F002511EF /* UISignUpTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		8DB089C121A0814900BF1C0D /* RGInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGInputViewController.swift; sourceTree = "<group>"; };
 		8DB089C321A081E000BF1C0D /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
 		8DB089C521A081F700BF1C0D /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
+		8DB8A03A21A0A2F40056F4B6 /* GreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenButton.swift; sourceTree = "<group>"; };
 		91B04CFC21A08E3F002511EF /* UISignUpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISignUpTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 				8DB089C321A081E000BF1C0D /* FaceViewController.swift */,
 				8DB089C521A081F700BF1C0D /* ValidationViewController.swift */,
 				91B04CFC21A08E3F002511EF /* UISignUpTableViewCell.swift */,
+				8DB8A03A21A0A2F40056F4B6 /* GreenButton.swift */,
 			);
 			path = HackaPortoCred;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				8DB089C621A081F700BF1C0D /* ValidationViewController.swift in Sources */,
 				8DB089C221A0814900BF1C0D /* RGInputViewController.swift in Sources */,
 				8DB089C021A080D000BF1C0D /* SingupOverviewViewController.swift in Sources */,
+				8DB8A03B21A0A2F40056F4B6 /* GreenButton.swift in Sources */,
 				8DB089BD21A0801A00BF1C0D /* SignUpViewController.swift in Sources */,
 				8DB089A721A07B3400BF1C0D /* AppDelegate.swift in Sources */,
 			);
