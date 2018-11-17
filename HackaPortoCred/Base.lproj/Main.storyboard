@@ -65,19 +65,19 @@
                                     <action selector="previousAction:" destination="Vbi-8Z-Ifp" eventType="touchUpInside" id="9E0-xK-CTD"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="npd-I1-wYh">
-                                <rect key="frame" x="0.0" y="124" width="375" height="543"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="npd-I1-wYh">
+                                <rect key="frame" x="0.0" y="124" width="375" height="443"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="rgr-s1-hiZ" firstAttribute="bottom" secondItem="npd-I1-wYh" secondAttribute="bottom" constant="100" id="21p-wG-C2u"/>
                             <constraint firstItem="rgr-s1-hiZ" firstAttribute="trailing" secondItem="npd-I1-wYh" secondAttribute="trailing" id="EgA-ZR-KaZ"/>
                             <constraint firstItem="EIu-aD-M9V" firstAttribute="top" secondItem="rgr-s1-hiZ" secondAttribute="top" constant="20" id="M5o-8v-gG8"/>
                             <constraint firstItem="EIu-aD-M9V" firstAttribute="centerX" secondItem="eqM-fu-wpV" secondAttribute="centerX" id="c8o-9a-NoW"/>
                             <constraint firstItem="npd-I1-wYh" firstAttribute="leading" secondItem="rgr-s1-hiZ" secondAttribute="leading" id="hEJ-dM-oI5"/>
                             <constraint firstItem="npd-I1-wYh" firstAttribute="top" secondItem="EIu-aD-M9V" secondAttribute="bottom" constant="20" id="ikS-aG-NUZ"/>
-                            <constraint firstItem="rgr-s1-hiZ" firstAttribute="bottom" secondItem="npd-I1-wYh" secondAttribute="bottom" id="wq8-fD-ytA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rgr-s1-hiZ"/>
                     </view>
