@@ -6,6 +6,7 @@
 //  Copyright © 2018 HomeroXS. All rights reserved.
 //
 
+import Alamofire
 import Foundation
 import UIKit
 
@@ -17,25 +18,22 @@ struct Person {
     let phoneNumber: String
     
     func makePayload() -> [String: String] {
-        let cleanCPF = cpf.split(whereSeparator: { $0 == "." || $0 == "-" }).joined(separator: "")
-        let cleanPhoneNumber = phoneNumber.split(whereSeparator: { ["(", ")", " ", "-"].contains(String($0)) }).joined(separator: "")
-        
-        let json = [
-            "Code": cleanCPF,
+        return [
+            "Code": cpf,
             "Name": name,
-            "Phone": cleanPhoneNumber,
+            "Phone": phoneNumber,
             "Email": email,
         ]
-        
-        return json
     }
 }
 
 class Biometrics {
     static let shared = Biometrics()
     
-    private var authURL = URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/user/authToken")!
-    private var processCreateURL = URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/process/create/1")!
+    private var authURL =
+        URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/user/authToken")!
+    private var processCreateURL =
+        URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/process/create/1")!
     
     private var authToken: String?
     
@@ -49,12 +47,11 @@ class Biometrics {
         request.setValue("Integracao!2018", forHTTPHeaderField: "X-Password")
         
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
-            let resp = response as! HTTPURLResponse
-            if error != nil || resp.statusCode >= 300 {
+            guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                 completion(false, error)
                 return
             }
-            
+
             let json = try! JSONSerialization.jsonObject(with: data!) as! [String: Any]
             if let result = json["GetAuthTokenResult"] as? [String: Any], let authToken = result["AuthToken"] as? String {
                 self.authToken = authToken
@@ -63,40 +60,38 @@ class Biometrics {
                 completion(false, nil)
             }
         }
-        
+
         dataTask.resume()
     }
     
     func createUser(_ user: Person, completion: @escaping (Bool?, Error?) -> Void) {
         authenticate { status, error in
-            guard error == nil, status else {
-                completion(false, error)
-                return
-            }
+            let headers = [
+                "Content-Type": "application/json",
+                "X-AcessoBio-APIKEY": "53C8D9A5-0C9C-494B-A4E2-DB089E73CC3B",
+                "X-Login": "INTEGRACAO.PORTOCRED",
+                "X-Password": "Integracao!2018",
+                "Authentication": self.authToken!,
+            ]
             
-            var request = URLRequest(url: self.processCreateURL)
+            let parameters = ["subject": user.makePayload()] as [String : Any]
+            let postData = try! JSONSerialization.data(withJSONObject: parameters)
+            
+            let request = NSMutableURLRequest(url: self.processCreateURL,
+                                              cachePolicy: .useProtocolCachePolicy,
+                                              timeoutInterval: 10.0)
             request.httpMethod = "POST"
-            request.setValue("53C8D9A5-0C9C-494B-A4E2-DB089E73CC3B", forHTTPHeaderField: "X-AcessoBio-APIKEY")
-            request.setValue("INTEGRACAO.PORTOCRED", forHTTPHeaderField: "X-Login")
-            request.setValue("Integracao!2018", forHTTPHeaderField: "X-Password")
-            guard let authToken = self.authToken else { fatalError("call authenticate first!") }
-            request.setValue(authToken, forHTTPHeaderField: "Authentication")
+            request.allHTTPHeaderFields = headers
+            request.httpBody = postData
             
-            let payload = [ "subject": user.makePayload() ]
-            request.httpBody = try! JSONSerialization.data(withJSONObject: payload)
-            
-            let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
-                guard error == nil else {
+            let dataTask = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+                if error != nil {
                     completion(false, error)
-                    return
+                } else {
+                    let result = try! JSONSerialization.jsonObject(with: data!)
+                    print(result)
+                    completion(true, nil)
                 }
-                
-                guard let response = response as? HTTPURLResponse else {
-                    completion(false, nil)
-                    return
-                }
-                
-                completion(response.statusCode == 200, nil)
             }
             
             dataTask.resume()
