@@ -92,7 +92,7 @@ class SignUpViewController: UIViewController {
             tableView.scrollToRow(at: IndexPath(row: indexPath.row - 1, section: 0), at: .top, animated: true)
         }
     }
-
+    
 }
 
 extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
@@ -164,6 +164,7 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.inputView = nil
         switch textField.tag {
         case 0:
             textField.keyboardType = .namePhonePad
@@ -177,6 +178,7 @@ extension SignUpViewController: UITextFieldDelegate {
             textField.keyboardType = .numberPad
             textField.textContentType = .telephoneNumber
         case 4:
+            textField.textContentType = nil
             textField.keyboardType = .numberPad
         default:
             break

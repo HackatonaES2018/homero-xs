@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="1720.8" y="-297.30134932533736"/>
         </scene>
-        <!--Sigup Overview View Controller-->
+        <!--Sign Up Overview View Controller-->
         <scene sceneID="ZYD-mL-suB">
             <objects>
-                <viewController id="wlN-pi-qdv" customClass="SigupOverviewViewController" sceneMemberID="viewController">
+                <viewController id="wlN-pi-qdv" customClass="SignUpOverviewViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4FX-xR-RiA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,11 +214,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="birthDate" destination="1xi-Xw-1MP" id="dtl-zg-hJ8"/>
-                        <outlet property="cpf" destination="tf1-1b-vaI" id="diR-Zz-OVX"/>
-                        <outlet property="mail" destination="wDw-Vr-JXQ" id="G8M-UE-t5g"/>
-                        <outlet property="name" destination="T41-nQ-RoD" id="Kz8-RR-cpF"/>
-                        <outlet property="phone" destination="eJV-Id-IeQ" id="8Sn-2M-BG6"/>
+                        <outlet property="birthDate" destination="mkk-YK-63m" id="fRr-hd-Arh"/>
+                        <outlet property="cpf" destination="kcN-dM-Q3h" id="7eR-lk-jHe"/>
+                        <outlet property="mail" destination="lnp-ZK-Hrk" id="9tR-Cp-an1"/>
+                        <outlet property="name" destination="T41-nQ-RoD" id="2Un-jA-v6j"/>
+                        <outlet property="phone" destination="aWQ-bW-8Or" id="RFJ-xY-0Rk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOp-RI-1cQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
