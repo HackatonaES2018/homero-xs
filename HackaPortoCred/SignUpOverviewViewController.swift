@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SingupOverviewViewController: UIViewController {
+class SignUpOverviewViewController: UIViewController {
 
     static let identifier = "SingupOverviewViewController"
 
