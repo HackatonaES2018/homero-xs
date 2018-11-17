@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SigupViewController: UIViewController {
+class SignUpViewController: UIViewController {
 
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -33,7 +33,7 @@ class SigupViewController: UIViewController {
 
 }
 
-extension SigupViewController: UITableViewDelegate, UITableViewDataSource {
+extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
 
     func setTableView() {
         tableView.register(UISignUpTableViewCell.self, forCellReuseIdentifier: UISignUpTableViewCell.identifier)
