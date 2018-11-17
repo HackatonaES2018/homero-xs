@@ -42,7 +42,7 @@ extension RGInputViewController: UIImagePickerControllerDelegate {
                 if successed {
                     self.performSegue(withIdentifier: self.showRG, sender: nil)
                 } else {
-                    self.showAlert(title: "Erro", message: "Não possivel reconhecer o rosto.")
+                    self.showAlert(title: "Erro", message: "Não possivel reconhecer o rg.")
                 }
             }
         }
