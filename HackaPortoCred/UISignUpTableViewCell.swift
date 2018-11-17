@@ -15,13 +15,15 @@ class UISignUpTableViewCell: UITableViewCell {
     private let label = UILabel()
     public var title: String! {
         didSet {
-            label.text = title
+            label.text = "\(title ?? ""):"
         }
     }
 
     private let line = UIView(frame: .zero)
 
     public let textField = UITextField()
+
+    public let button = GreenButton()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,20 +35,21 @@ class UISignUpTableViewCell: UITableViewCell {
         setLabel()
         setTextField()
         setLine()
+        setButton()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK - Label
+    // MARK: - Label
 
     private func setLabel() {
         label.textColor = #colorLiteral(red: 0.09803921569, green: 0.168627451, blue: 0.3647058824, alpha: 1)
         addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         let marginTop: CGFloat = 20
-        let marginRightLeft: CGFloat = 20
+        let marginRightLeft: CGFloat = 45
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topAnchor, constant: marginTop),
             label.rightAnchor.constraint(equalTo: rightAnchor, constant: -marginRightLeft),
@@ -61,7 +64,7 @@ class UISignUpTableViewCell: UITableViewCell {
         addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false
         let marginTop: CGFloat = 5
-        let marginRightLeft: CGFloat = 20
+        let marginRightLeft: CGFloat = 45
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: marginTop),
             textField.rightAnchor.constraint(equalTo: rightAnchor, constant: -marginRightLeft),
@@ -69,7 +72,7 @@ class UISignUpTableViewCell: UITableViewCell {
             ])
     }
 
-    // MARK - Line
+    // MARK: - Line
 
     private func setLine() {
         line.backgroundColor = #colorLiteral(red: 0.5921568627, green: 0.7725490196, blue: 0.1411764706, alpha: 1)
@@ -80,7 +83,24 @@ class UISignUpTableViewCell: UITableViewCell {
             line.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: marginTop),
             line.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
             line.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
-            line.heightAnchor.constraint(equalToConstant: 1)
+            line.heightAnchor.constraint(equalToConstant: 2)
+            ])
+    }
+
+    // MARK: - Button
+
+    private func setButton() {
+        button.frame = CGRect(x: 0, y: 0, width: 110, height: 33)
+        button.setTitle("Avançar", for: .normal)
+        addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let marginTop: CGFloat = 10
+        let rightMargin: CGFloat = 20
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: line.bottomAnchor, constant: marginTop),
+            button.rightAnchor.constraint(equalTo: rightAnchor, constant: -rightMargin),
+            button.heightAnchor.constraint(equalToConstant: 33),
+            button.widthAnchor.constraint(equalToConstant: 110)
             ])
     }
 }
