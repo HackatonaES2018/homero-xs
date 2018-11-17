@@ -18,7 +18,13 @@ class SignUpViewController: UIViewController {
                                 cpf: "",
                                 phoneNumber: "")
     let datePicker = UIDatePicker()
-    var date: Date?
+    var date: Date? {
+        didSet {
+            if let date = date {
+                person.birthDate = date
+            }
+        }
+    }
     let dateFormatter: DateFormatter = {
        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -156,8 +162,6 @@ extension SignUpViewController: UITextFieldDelegate {
         switch textField.tag {
         case 0:
             person.name = text
-        case 1:
-            break
         case 2:
             person.email = text
         case 3:
