@@ -36,6 +36,7 @@ class Biometrics {
         URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/process/create/1")!
     
     private var authToken: String?
+    private var processId: String?
     
     private init() {}
     
@@ -88,8 +89,12 @@ class Biometrics {
                 if error != nil {
                     completion(false, error)
                 } else {
-                    let result = try! JSONSerialization.jsonObject(with: data!)
+                    let result = try! JSONSerialization.jsonObject(with: data!) as! [String: Any]
                     print(result)
+                    let createProcessResult = result["CreateProcessResult"] as! [String: Any]
+                    let process = createProcessResult["Process"] as! [String: Any]
+                    let id = process["Id"] as! String
+                    self.processId = id
                     completion(true, nil)
                 }
             }
