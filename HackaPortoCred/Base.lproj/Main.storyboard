@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="2508" y="-304"/>
         </scene>
-        <!--Input View Controller-->
+        <!--Face View Controller-->
         <scene sceneID="Ci7-wQ-DC3">
             <objects>
-                <viewController id="5uv-9R-qqu" customClass="RGInputViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5uv-9R-qqu" customClass="FaceViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0UA-4P-mUQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="3412" y="-260.41979010494754"/>
         </scene>
-        <!--Face View Controller-->
+        <!--Input View Controller-->
         <scene sceneID="Z4G-bG-wJT">
             <objects>
-                <viewController id="P4n-xf-WPA" customClass="FaceViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="P4n-xf-WPA" customClass="RGInputViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7X3-og-k19">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
