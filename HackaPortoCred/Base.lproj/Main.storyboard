@@ -89,7 +89,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFr-bS-pUM">
-                                <rect key="frame" x="152" y="248" width="46" height="30"/>
+                                <rect key="frame" x="164" y="248" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -107,6 +107,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="P4n-xf-WPA" kind="show" identifier="showRG" id="GCF-ZK-0Fi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BfO-z5-lcy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,6 +122,16 @@
                     <view key="view" contentMode="scaleToFill" id="7X3-og-k19">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJE-3I-lBG">
+                                <rect key="frame" x="187" y="227" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="cameraAction:" destination="P4n-xf-WPA" eventType="touchUpInside" id="ODd-SQ-2G4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="p6A-ly-sDp"/>
                     </view>
@@ -168,4 +181,7 @@
             <point key="canvasLocation" x="-239.19999999999999" y="-260.41979010494754"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GCF-ZK-0Fi"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -9,7 +9,12 @@
 import UIKit
 
 extension UIViewController {
-    func makeImagePickerOpitions(_ imagePicker: UIImagePickerController) -> UIAlertController {
+    func showAlert(title: String? = nil, message: String? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showImagePickerOpitions(_ imagePicker: UIImagePickerController) {
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             self.openCamera(imagePicker)
@@ -20,7 +25,7 @@ extension UIViewController {
         }))
         
         alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
-        return alert
+        present(alert, animated: true, completion: nil)
     }
     
     func openCamera(_ imagePicker: UIImagePickerController) {

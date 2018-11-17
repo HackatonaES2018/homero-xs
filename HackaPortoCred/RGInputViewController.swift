@@ -10,21 +10,45 @@ import UIKit
 
 class RGInputViewController: UIViewController {
 
+    let imagePicker = UIImagePickerController()
+    let showRG = "showRG"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        imagePicker.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func cameraAction(_ sender: UIButton) {
+        showImagePickerOpitions(imagePicker)
     }
-    */
+    
+}
 
+extension RGInputViewController: UINavigationControllerDelegate {}
+extension RGInputViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let editedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            return
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        Biometrics.shared.uploadDocPhoto(editedImage) { (successed, error) in
+            if let error = error {
+                self.showAlert(title: "Erro", message: error.localizedDescription)
+            } else if let successed = successed {
+                if successed {
+                    self.performSegue(withIdentifier: self.showRG, sender: nil)
+                } else {
+                    self.showAlert(title: "Erro", message: "Não possivel reconhecer o rosto.")
+                }
+            }
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        imagePicker.dismiss(animated: true)
+    }
 }
