@@ -10,6 +10,10 @@ import UIKit
 
 class SigupViewController: UIViewController {
 
+    @IBOutlet weak var previousButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nextButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,4 +31,33 @@ class SigupViewController: UIViewController {
     }
     */
 
+}
+
+extension SigupViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func setTableView() {
+        tableView.register(UISignUpTableViewCell.self, forCellReuseIdentifier: UISignUpTableViewCell.identifier)
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UISignUpTableViewCell(frame: .zero)
+        if indexPath.row == 0 {
+            cell.textField.placeholder = "Nome"
+        } else if indexPath.row == 2 {
+            cell.textField.placeholder = "Data de nscimento"
+        } else if indexPath.row == 2 {
+            cell.textField.placeholder = "E-Mail"
+        } else if indexPath.row == 3 {
+            cell.textField.placeholder = "Celular"
+        } else if indexPath.row == 4 {
+            cell.textField.placeholder = "CPF"
+        }
+        return cell;
+    }
+    
+    
 }
