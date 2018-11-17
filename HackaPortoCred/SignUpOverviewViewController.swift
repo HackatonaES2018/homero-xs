@@ -15,6 +15,7 @@ class SignUpOverviewViewController: UIViewController {
     var person: Person?
 
     @IBOutlet weak var name: UILabel!
+    
     @IBOutlet weak var birthDate: UILabel!
     @IBOutlet weak var mail: UILabel!
     @IBOutlet weak var phone: UILabel!
