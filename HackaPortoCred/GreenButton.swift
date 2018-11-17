@@ -22,6 +22,10 @@ class GreenButton: UIButton {
     
     func commonInit() {
         backgroundColor = #colorLiteral(red: 0.5921568627, green: 0.7725490196, blue: 0.1411764706, alpha: 1)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         layer.cornerRadius = frame.height * 0.5
     }
 }
