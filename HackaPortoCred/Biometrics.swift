@@ -42,25 +42,49 @@ class Biometrics {
     
     private init() {}
     
+    private enum HTTPMethod: String {
+        case get = "GET"
+        case post = "POST"
+    }
+    
+    private func makeRequest(url: URL, method: HTTPMethod, auth: Bool = false, payload: Any? = nil) -> URLRequest {
+        var headers = [
+            "Content-Type": "application/json",
+            "X-AcessoBio-APIKEY": "53C8D9A5-0C9C-494B-A4E2-DB089E73CC3B",
+            "X-Login": "INTEGRACAO.PORTOCRED",
+            "X-Password": "Integracao!2018",
+            ]
+        
+        if auth {
+            headers["Authentication"] = self.authToken!
+        }
+        
+        let request = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        request.httpMethod = method.rawValue
+        request.allHTTPHeaderFields = headers
+        
+        if let payload = payload {
+            let postData = try! JSONSerialization.data(withJSONObject: payload)
+            request.httpBody = postData
+        }
+        
+        return request as URLRequest
+    }
+    
     private func authenticate(completion: @escaping (Bool, Error?) -> Void) {
-        var request = URLRequest(url: authURL)
-        request.httpMethod = "GET"
-        request.setValue("53C8D9A5-0C9C-494B-A4E2-DB089E73CC3B", forHTTPHeaderField: "X-AcessoBio-APIKEY")
-        request.setValue("INTEGRACAO.PORTOCRED", forHTTPHeaderField: "X-Login")
-        request.setValue("Integracao!2018", forHTTPHeaderField: "X-Password")
+        let request = self.makeRequest(url: authURL, method: .get)
         
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completion(false, error)
+                DispatchQueue.main.async { completion(false, error) }
                 return
             }
-
-            let json = try! JSONSerialization.jsonObject(with: data!) as! [String: Any]
-            if let result = json["GetAuthTokenResult"] as? [String: Any], let authToken = result["AuthToken"] as? String {
+            
+            if let authToken = JSON(data!)["GetAuthTokenResult"]["AuthToken"].string {
                 self.authToken = authToken
-                completion(true, nil)
+                DispatchQueue.main.async { completion(true, nil) }
             } else {
-                completion(false, nil)
+                DispatchQueue.main.async { completion(false, nil) }
             }
         }
 
@@ -70,39 +94,24 @@ class Biometrics {
     func createUser(_ user: Person, completion: @escaping (Bool?, Error?) -> Void) {
         authenticate { status, error in
             guard error == nil, status else {
-                completion(false, nil)
+                DispatchQueue.main.async { completion(false, error) }
                 return
             }
             
-            let headers = [
-                "Content-Type": "application/json",
-                "X-AcessoBio-APIKEY": "53C8D9A5-0C9C-494B-A4E2-DB089E73CC3B",
-                "X-Login": "INTEGRACAO.PORTOCRED",
-                "X-Password": "Integracao!2018",
-                "Authentication": self.authToken!,
-            ]
+            let payload = ["subject": user.makePayload()] as [String: Any]
+            let request = self.makeRequest(url: self.processCreateURL, method: .post, auth: true, payload: payload)
             
-            let parameters = ["subject": user.makePayload()] as [String : Any]
-            let postData = try! JSONSerialization.data(withJSONObject: parameters)
-            
-            let request = NSMutableURLRequest(url: self.processCreateURL,
-                                              cachePolicy: .useProtocolCachePolicy,
-                                              timeoutInterval: 10.0)
-            request.httpMethod = "POST"
-            request.allHTTPHeaderFields = headers
-            request.httpBody = postData
-            
-            let dataTask = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-                if error != nil {
-                    completion(false, error)
+            let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    DispatchQueue.main.async { completion(false, error) }
+                    return
+                }
+                
+                if let processId = JSON(data!)["CreateProcessResult"]["Process"]["Id"].string {
+                    self.processId = processId
+                    DispatchQueue.main.async { completion(true, nil) }
                 } else {
-                    let result = try! JSONSerialization.jsonObject(with: data!) as! [String: Any]
-                    print(result)
-                    let createProcessResult = result["CreateProcessResult"] as! [String: Any]
-                    let process = createProcessResult["Process"] as! [String: Any]
-                    let id = process["Id"] as! String
-                    self.processId = id
-                    completion(true, nil)
+                    DispatchQueue.main.async { completion(false, nil) }
                 }
             }
             
@@ -111,36 +120,20 @@ class Biometrics {
     }
     
     func uploadFacePhoto(_ image: UIImage, completion: @escaping (Bool?, Error?) -> Void) {
-        let base64 = image
-            .resized(toWidth: 1024)
-            .pngData()!
-            .base64EncodedString(options: .lineLength64Characters)
+        let base64 = image.jpegData(compressionQuality: 1)!.base64EncodedString()
+        let payload = ["imagebase64": base64]
+        let request = self.makeRequest(url: faceInsert, method: .post, auth: true, payload: payload)
         
-        let headers = [
-            "Content-Type": "application/json",
-            "X-AcessoBio-APIKEY": "53C8D9A5-0C9C-494B-A4E2-DB089E73CC3B",
-            "X-Login": "INTEGRACAO.PORTOCRED",
-            "X-Password": "Integracao!2018",
-            "Authentication": self.authToken!
-            ]
-        
-        let parameters = ["imagebase64": base64] as [String : Any]
-        let postData = try! JSONSerialization.data(withJSONObject: parameters)
-        
-        let request = NSMutableURLRequest(url: self.faceInsert,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = headers
-        request.httpBody = postData
-        
-        let dataTask = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-            if error != nil {
-                completion(false, error)
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                DispatchQueue.main.async { completion(false, error) }
+                return
+            }
+            
+            if let errorCode = JSON(data!)["FaceInsertResult"]["Error"]["Code"].int, errorCode == 0 {
+                DispatchQueue.main.async { completion(true, nil) }
             } else {
-                let result = try! JSONSerialization.jsonObject(with: data!) as! [String: Any]
-                print(result)
-                completion(true, nil)
+                DispatchQueue.main.async { completion(false, nil) }
             }
         }
         

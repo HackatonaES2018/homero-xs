@@ -19,6 +19,7 @@
 		8DB089C221A0814900BF1C0D /* RGInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089C121A0814900BF1C0D /* RGInputViewController.swift */; };
 		8DB089C421A081E000BF1C0D /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089C321A081E000BF1C0D /* FaceViewController.swift */; };
 		8DB089C621A081F700BF1C0D /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089C521A081F700BF1C0D /* ValidationViewController.swift */; };
+		9E2809A421A0B4260037C292 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2809A321A0B4260037C292 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8DB089C121A0814900BF1C0D /* RGInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGInputViewController.swift; sourceTree = "<group>"; };
 		8DB089C321A081E000BF1C0D /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
 		8DB089C521A081F700BF1C0D /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
+		9E2809A321A0B4260037C292 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				8DB089C321A081E000BF1C0D /* FaceViewController.swift */,
 				8DB089C521A081F700BF1C0D /* ValidationViewController.swift */,
 				8D06218421A08749001672E3 /* UIViewController+makePickerImage.swift */,
+				9E2809A321A0B4260037C292 /* SwiftyJSON.swift */,
 			);
 			path = HackaPortoCred;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				8DB089BB21A07FD100BF1C0D /* ViewController.swift in Sources */,
 				8DB089C421A081E000BF1C0D /* FaceViewController.swift in Sources */,
 				8DB089B921A07B7400BF1C0D /* Biometrics.swift in Sources */,
+				9E2809A421A0B4260037C292 /* SwiftyJSON.swift in Sources */,
 				8D06218521A08749001672E3 /* UIViewController+makePickerImage.swift in Sources */,
 				8DB089C621A081F700BF1C0D /* ValidationViewController.swift in Sources */,
 				8DB089C221A0814900BF1C0D /* RGInputViewController.swift in Sources */,
