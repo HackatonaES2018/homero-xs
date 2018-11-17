@@ -39,9 +39,13 @@ class Biometrics {
     private var docInsert: URL {
         return URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/process/\(self.processId!)/documentInsert/2")!
     }
+    private var processExecute: URL {
+        return URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/process/\(self.processId!)/execute")!
+    }
     
     private var authToken: String?
     private var processId: String?
+    private var person: Person?
     
     private init() {}
     
@@ -112,6 +116,7 @@ class Biometrics {
                 
                 if let processId = JSON(data!)["CreateProcessResult"]["Process"]["Id"].string {
                     self.processId = processId
+                    self.person = user
                     DispatchQueue.main.async { completion(true, nil) }
                 } else {
                     DispatchQueue.main.async { completion(false, nil) }
@@ -183,7 +188,35 @@ class Biometrics {
     }
     
     func validate(completion: @escaping (Bool?, Error?) -> Void) {
+        let request = makeRequest(url: processExecute, method: .get, auth: true)
         
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                if let fuckingError = JSON(data!)["Error"]["Description"].string {
+                    let userInfo = [NSLocalizedDescriptionKey: fuckingError]
+                    let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+                    DispatchQueue.main.async { completion(false, err) }
+                } else {
+                    DispatchQueue.main.async { completion(false, nil) }
+                }
+                
+                return
+            }
+            
+            if let fuckingError = JSON(data!)["ExecuteInsertResult"]["Error"]["Description"].string {
+                let userInfo = [NSLocalizedDescriptionKey: fuckingError]
+                let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+                DispatchQueue.main.async { completion(false, err) }
+            } else {
+                self.haltAndCatchFire(completion: completion)
+            }
+        }
+        
+        dataTask.resume()
+    }
+    
+    private func haltAndCatchFire(completion: @escaping (Bool?, Error?) -> Void) {
+        print(1)
     }
 }
 
