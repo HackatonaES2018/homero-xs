@@ -24,8 +24,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
-        datePicker.addTarget(self, action: #selector(getDate), for: .valueChanged)
-        datePicker.maximumDate = Date()
+        setupDatePicker()
     }
     
 
@@ -36,6 +35,12 @@ class SignUpViewController: UIViewController {
         destination.person = person
     }
 
+    func setupDatePicker() {
+        datePicker.addTarget(self, action: #selector(getDate), for: .valueChanged)
+        datePicker.maximumDate = Date()
+        datePicker.datePickerMode = .date
+    }
+    
     @objc func getDate(sender: UIDatePicker) {
         date = sender.date
         guard let cell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? UISignUpTableViewCell else {
