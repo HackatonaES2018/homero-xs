@@ -29,7 +29,7 @@ class SignUpViewController: UIViewController {
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == SingupOverviewViewController.identifier, let destination = segue.destination as? SingupOverviewViewController else {
+        guard segue.identifier == SignUpOverviewViewController.identifier, let destination = segue.destination as? SignUpOverviewViewController else {
             return
         }
         destination.person = person
@@ -115,7 +115,7 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if sender.tag == 4 {
-            performSegue(withIdentifier: SingupOverviewViewController.identifier, sender: nil)
+            performSegue(withIdentifier: SignUpOverviewViewController.identifier, sender: nil)
         }
     }
     
