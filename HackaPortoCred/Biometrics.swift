@@ -120,7 +120,7 @@ class Biometrics {
     }
     
     func uploadFacePhoto(_ image: UIImage, completion: @escaping (Bool?, Error?) -> Void) {
-        let base64 = image.jpegData(compressionQuality: 1)!.base64EncodedString()
+        let base64 = image.jpegData(compressionQuality: 0.7)!.base64EncodedString()
         let payload = ["imagebase64": base64]
         let request = self.makeRequest(url: faceInsert, method: .post, auth: true, payload: payload)
         
@@ -130,10 +130,12 @@ class Biometrics {
                 return
             }
             
-            if let errorCode = JSON(data!)["FaceInsertResult"]["Error"]["Code"].int, errorCode == 0 {
-                DispatchQueue.main.async { completion(true, nil) }
+            if let fuckingError = JSON(data!)["FaceInsertResult"]["Error"].dictionary {
+                let userInfo = [NSLocalizedDescriptionKey: fuckingError["Description"]!.string]
+                let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+                DispatchQueue.main.async { completion(false, err) }
             } else {
-                DispatchQueue.main.async { completion(false, nil) }
+                DispatchQueue.main.async { completion(true, nil) }
             }
         }
         
@@ -156,5 +158,25 @@ extension UIImage {
         defer { UIGraphicsEndImageContext() }
         draw(in: CGRect(origin: .zero, size: canvasSize))
         return UIGraphicsGetImageFromCurrentImageContext()!
+    }
+    
+    func scale(to newSize: CGSize) -> UIImage {
+        var scaledRect = CGRect.zero
+        
+        let aspectWidth = newSize.width / self.size.width
+        let aspectHeight = newSize.height / self.size.height
+        let aspectRatio = min(aspectWidth, aspectHeight)
+        
+        scaledRect.size.width = self.size.width * aspectRatio
+        scaledRect.size.height = self.size.height * aspectRatio
+        scaledRect.origin.x = (newSize.width - scaledRect.size.width) / 2
+        scaledRect.origin.y = (newSize.height - scaledRect.size.height) / 2
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+        self.draw(in: scaledRect)
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return result!
     }
 }

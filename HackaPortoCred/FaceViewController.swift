@@ -29,13 +29,14 @@ class FaceViewController: UIViewController {
 extension FaceViewController: UINavigationControllerDelegate {}
 extension FaceViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let editedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+        guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
         
         picker.dismiss(animated: true, completion: nil)
         
-        Biometrics.shared.uploadFacePhoto(editedImage) { (successed, error) in
+        let ttt = editedImage.scale(to: CGSize(width: 1280, height: 720))
+        Biometrics.shared.uploadFacePhoto(ttt) { (successed, error) in
             if let error = error {
                 self.showAlert(title: "Erro", message: error.localizedDescription)
             } else if let successed = successed {
