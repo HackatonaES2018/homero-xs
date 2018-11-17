@@ -36,6 +36,9 @@ class Biometrics {
     private var faceInsert: URL {
         return URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/process/\(self.processId!)/faceInsert")!
     }
+    private var docInsert: URL {
+        return URL(string: "https://crediariohomolog.acesso.io/portocred/services/v2/CredService.svc/process/\(self.processId!)/documentInsert/2")!
+    }
     
     private var authToken: String?
     private var processId: String?
@@ -126,7 +129,14 @@ class Biometrics {
         
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                DispatchQueue.main.async { completion(false, error) }
+                if let fuckingError = JSON(data!)["Error"]["Description"].string {
+                    let userInfo = [NSLocalizedDescriptionKey: fuckingError]
+                    let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+                    DispatchQueue.main.async { completion(false, err) }
+                } else {
+                    DispatchQueue.main.async { completion(false, nil) }
+                }
+                
                 return
             }
             
@@ -143,7 +153,33 @@ class Biometrics {
     }
     
     func uploadDocPhoto(_ image: UIImage, completion: @escaping (Bool?, Error?) -> Void) {
+        let base64 = image.jpegData(compressionQuality: 0.7)!.base64EncodedString()
+        let payload = ["imagebase64": base64]
+        let request = self.makeRequest(url: docInsert, method: .post, auth: true, payload: payload)
         
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                if let fuckingError = JSON(data!)["Error"]["Description"].string {
+                    let userInfo = [NSLocalizedDescriptionKey: fuckingError]
+                    let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+                    DispatchQueue.main.async { completion(false, err) }
+                } else {
+                    DispatchQueue.main.async { completion(false, nil) }
+                }
+                
+                return
+            }
+            
+            if let fuckingError = JSON(data!)["DocumentInsertResult"]["Error"].dictionary {
+                let userInfo = [NSLocalizedDescriptionKey: fuckingError["Description"]!.string]
+                let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+                DispatchQueue.main.async { completion(false, err) }
+            } else {
+                DispatchQueue.main.async { completion(true, nil) }
+            }
+        }
+        
+        dataTask.resume()
     }
     
     func validate(completion: @escaping (Bool?, Error?) -> Void) {
