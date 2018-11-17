@@ -213,6 +213,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="birthDate" destination="1xi-Xw-1MP" id="dtl-zg-hJ8"/>
+                        <outlet property="cpf" destination="tf1-1b-vaI" id="diR-Zz-OVX"/>
+                        <outlet property="mail" destination="wDw-Vr-JXQ" id="G8M-UE-t5g"/>
+                        <outlet property="name" destination="T41-nQ-RoD" id="Kz8-RR-cpF"/>
+                        <outlet property="phone" destination="eJV-Id-IeQ" id="8Sn-2M-BG6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOp-RI-1cQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
