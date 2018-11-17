@@ -12,7 +12,6 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var nextButton: UIButton!
     var person: Person = Person(name: "",
                                 email: "",
                                 birthDate: Date(),
@@ -25,6 +24,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         setTableView()
         setupDatePicker()
+        previousButton.isHidden = true
     }
     
 
@@ -67,6 +67,8 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
+        cell.button.tag = indexPath.row
+        cell.button.addTarget(self, action: #selector(nextAction(sender:)), for: .touchUpInside)
         cell.textField.tag = indexPath.row
         cell.textField.delegate = self
         if indexPath.row == 0 {
@@ -74,7 +76,7 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textField.placeholder = "John Doe"
             cell.textField.text = person.name
         } else if indexPath.row == 1 {
-            cell.title = "Data de nacimento"
+            cell.title = "Data de nascimento"
             cell.textField.placeholder = "XX/XX/XXXX"
             cell.textField.text = date?.description
         } else if indexPath.row == 2 {
@@ -90,7 +92,27 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textField.placeholder = "000.000.000-00"
             cell.textField.text = person.cpf
         }
+        hidePreviousButtonIfNeed(indexPath)
         return cell;
+    }
+    
+    func hidePreviousButtonIfNeed(_ indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            previousButton.isHidden = true
+        default:
+            previousButton.isHidden = false
+        }
+    }
+    
+    @objc func nextAction(sender: UIButton) {
+        if 0..<4 ~= sender.tag {
+            tableView.scrollToRow(at: IndexPath(row: sender.tag + 1, section: 0), at: .bottom, animated: true)
+        }
+        
+        if sender.tag == 4 {
+            print("test")
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
