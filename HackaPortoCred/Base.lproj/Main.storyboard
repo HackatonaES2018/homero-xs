@@ -69,14 +69,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rgr-s1-hiZ" firstAttribute="bottom" secondItem="a6c-0p-fOJ" secondAttribute="bottom" constant="20" id="9Xp-U4-1hp"/>
                             <constraint firstItem="rgr-s1-hiZ" firstAttribute="trailing" secondItem="npd-I1-wYh" secondAttribute="trailing" id="EgA-ZR-KaZ"/>
-                            <constraint firstItem="a6c-0p-fOJ" firstAttribute="top" secondItem="npd-I1-wYh" secondAttribute="bottom" constant="20" id="Ia8-Mv-R7u"/>
                             <constraint firstItem="EIu-aD-M9V" firstAttribute="top" secondItem="rgr-s1-hiZ" secondAttribute="top" constant="20" id="M5o-8v-gG8"/>
                             <constraint firstItem="EIu-aD-M9V" firstAttribute="centerX" secondItem="eqM-fu-wpV" secondAttribute="centerX" id="c8o-9a-NoW"/>
                             <constraint firstItem="npd-I1-wYh" firstAttribute="leading" secondItem="rgr-s1-hiZ" secondAttribute="leading" id="hEJ-dM-oI5"/>
                             <constraint firstItem="npd-I1-wYh" firstAttribute="top" secondItem="EIu-aD-M9V" secondAttribute="bottom" constant="20" id="ikS-aG-NUZ"/>
-                            <constraint firstItem="a6c-0p-fOJ" firstAttribute="centerX" secondItem="eqM-fu-wpV" secondAttribute="centerX" id="pic-PQ-I7O"/>
+                            <constraint firstItem="rgr-s1-hiZ" firstAttribute="bottom" secondItem="npd-I1-wYh" secondAttribute="bottom" id="wq8-fD-ytA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rgr-s1-hiZ"/>
                     </view>
@@ -88,7 +86,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="nextButton" destination="a6c-0p-fOJ" id="oF2-xi-rwo"/>
                         <outlet property="previousButton" destination="EIu-aD-M9V" id="4u7-Ps-Ckq"/>
                         <outlet property="tableView" destination="npd-I1-wYh" id="HAG-Vx-mNr"/>
                     </connections>
