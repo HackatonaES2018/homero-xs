@@ -13,6 +13,11 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextButton: UIButton!
+    var person: Person = Person(name: "",
+                                email: "",
+                                birthDate: Date(),
+                                cpf: "",
+                                phoneNumber: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +25,12 @@ class SignUpViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard segue.identifier == "showInfo", let destination = segue.destination as? SingupOverviewViewController else {
+            return
+        }
+        destination.person = person
     }
-    */
 
 }
 
