@@ -19,6 +19,11 @@ class SignUpViewController: UIViewController {
                                 phoneNumber: "")
     let datePicker = UIDatePicker()
     var date: Date?
+    let dateFormatter: DateFormatter = {
+       let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        return dateFormatter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +51,9 @@ class SignUpViewController: UIViewController {
         guard let cell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? UISignUpTableViewCell else {
             return
         }
-        cell.textField.text = date?.description
+        if let date = date {
+            cell.textField.text = dateFormatter.string(from: date)
+        }
     }
     @IBAction func previousAction(_ sender: UIButton) {
         guard let indexPath = tableView.indexPathsForVisibleRows?.first else { return }
@@ -85,7 +92,9 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 1 {
             cell.title = "Data de nascimento"
             cell.textField.placeholder = "XX/XX/XXXX"
-            cell.textField.text = date?.description
+            if let date = date {
+                cell.textField.text = dateFormatter.string(from: date)
+            }
         } else if indexPath.row == 2 {
             cell.title = "E-Mail"
             cell.textField.placeholder = "john.doe@test.com"
