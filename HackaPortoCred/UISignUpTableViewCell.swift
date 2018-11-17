@@ -32,6 +32,8 @@ class UISignUpTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 0)
         setLabel()
         setTextField()
         setLine()
@@ -48,7 +50,7 @@ class UISignUpTableViewCell: UITableViewCell {
         label.textColor = #colorLiteral(red: 0.09803921569, green: 0.168627451, blue: 0.3647058824, alpha: 1)
         addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
-        let marginTop: CGFloat = 20
+        let marginTop = UIScreen.main.bounds.height * 0.2669201521
         let marginRightLeft: CGFloat = 45
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topAnchor, constant: marginTop),
