@@ -48,6 +48,8 @@ class SignUpViewController: UIViewController {
         }
         cell.textField.text = date?.description
     }
+    @IBAction func previousAction(_ sender: UIButton) {
+    }
 }
 
 extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
