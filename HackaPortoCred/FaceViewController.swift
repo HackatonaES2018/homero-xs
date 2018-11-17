@@ -9,22 +9,32 @@
 import UIKit
 
 class FaceViewController: UIViewController {
-
+    
+    let imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        imagePicker.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func cameraAction(_ sender: UIButton) {
+        let alert = makeImagePickerOpitions(imagePicker)
+        self.present(alert, animated: true, completion: nil)
     }
-    */
-
+    
 }
+
+extension FaceViewController: UINavigationControllerDelegate {}
+extension FaceViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        imagePicker.dismiss(animated: true)
+    }
+}
+
+
