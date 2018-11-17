@@ -16,8 +16,7 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setTableView()
     }
     
 
@@ -37,6 +36,8 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
 
     func setTableView() {
         tableView.register(UISignUpTableViewCell.self, forCellReuseIdentifier: UISignUpTableViewCell.identifier)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,20 +45,30 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UISignUpTableViewCell(frame: .zero)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: UISignUpTableViewCell.identifier, for: indexPath) as? UISignUpTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.selectionStyle = .none
         if indexPath.row == 0 {
-            cell.textField.placeholder = "Nome"
+            cell.title = "Nome"
+            cell.textField.placeholder = "John Doe"
         } else if indexPath.row == 2 {
-            cell.textField.placeholder = "Data de nscimento"
+            cell.title = "Data de nscimento"
+            cell.textField.placeholder = "XX/XX/XXXX"
         } else if indexPath.row == 2 {
+            cell.title = "E-Mail"
             cell.textField.placeholder = "E-Mail"
         } else if indexPath.row == 3 {
-            cell.textField.placeholder = "Celular"
+            cell.title = "Celular"
+            cell.textField.placeholder = "john.doe@test.com"
         } else if indexPath.row == 4 {
-            cell.textField.placeholder = "CPF"
+            cell.title = "CPF"
+            cell.textField.placeholder = "000.000.000-00"
         }
         return cell;
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.height
+    }
 }
