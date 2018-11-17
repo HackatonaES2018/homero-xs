@@ -99,20 +99,11 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textField.placeholder = "000.000.000-00"
             cell.textField.text = person.cpf
         }
-        hidePreviousButtonIfNeed(indexPath)
         return cell;
     }
     
-    func hidePreviousButtonIfNeed(_ indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
-            previousButton.isHidden = true
-        default:
-            previousButton.isHidden = false
-        }
-    }
-    
     @objc func nextAction(sender: UIButton) {
+        previousButton.isHidden = false
         if 0..<4 ~= sender.tag {
             tableView.scrollToRow(at: IndexPath(row: sender.tag + 1, section: 0), at: .bottom, animated: true)
         }
