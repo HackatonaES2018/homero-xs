@@ -58,12 +58,13 @@
                                 <rect key="frame" x="169.5" y="84" width="36" height="30"/>
                                 <state key="normal" title="Sobe"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6c-0p-fOJ">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6c-0p-fOJ">
                                 <rect key="frame" x="165.5" y="617" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Desce"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="npd-I1-wYh">
-                                <rect key="frame" x="0.0" y="134" width="375" height="463"/>
+                                <rect key="frame" x="0.0" y="134" width="375" height="533"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -78,16 +79,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rgr-s1-hiZ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2CM-fW-BFZ">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="au3-j2-XSa">
-                            <connections>
-                                <segue destination="wlN-pi-qdv" kind="show" id="Twe-06-k5Z"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="2CM-fW-BFZ"/>
                     <connections>
                         <outlet property="previousButton" destination="EIu-aD-M9V" id="4u7-Ps-Ckq"/>
                         <outlet property="tableView" destination="npd-I1-wYh" id="HAG-Vx-mNr"/>
+                        <segue destination="wlN-pi-qdv" kind="show" id="5XQ-lF-UiW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7m-Ce-TCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
