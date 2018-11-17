@@ -8,22 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		8DB089A721A07B3400BF1C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089A621A07B3400BF1C0D /* AppDelegate.swift */; };
-		8DB089A921A07B3400BF1C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089A821A07B3400BF1C0D /* ViewController.swift */; };
 		8DB089AC21A07B3400BF1C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB089AA21A07B3400BF1C0D /* Main.storyboard */; };
 		8DB089AE21A07B3500BF1C0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DB089AD21A07B3500BF1C0D /* Assets.xcassets */; };
 		8DB089B121A07B3500BF1C0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB089AF21A07B3500BF1C0D /* LaunchScreen.storyboard */; };
 		8DB089B921A07B7400BF1C0D /* Biometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089B821A07B7400BF1C0D /* Biometrics.swift */; };
+		8DB089BB21A07FD100BF1C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089BA21A07FD100BF1C0D /* ViewController.swift */; };
+		8DB089BD21A0801A00BF1C0D /* SigupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089BC21A0801A00BF1C0D /* SigupViewController.swift */; };
+		8DB089C021A080D000BF1C0D /* SingupOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089BF21A080D000BF1C0D /* SingupOverviewViewController.swift */; };
+		8DB089C221A0814900BF1C0D /* RGInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089C121A0814900BF1C0D /* RGInputViewController.swift */; };
+		8DB089C421A081E000BF1C0D /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089C321A081E000BF1C0D /* FaceViewController.swift */; };
+		8DB089C621A081F700BF1C0D /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089C521A081F700BF1C0D /* ValidationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8DB089A321A07B3400BF1C0D /* HackaPortoCred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackaPortoCred.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB089A621A07B3400BF1C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8DB089A821A07B3400BF1C0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8DB089AB21A07B3400BF1C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8DB089AD21A07B3500BF1C0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DB089B021A07B3500BF1C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8DB089B221A07B3500BF1C0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DB089B821A07B7400BF1C0D /* Biometrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biometrics.swift; sourceTree = "<group>"; };
+		8DB089BA21A07FD100BF1C0D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8DB089BC21A0801A00BF1C0D /* SigupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigupViewController.swift; sourceTree = "<group>"; };
+		8DB089BF21A080D000BF1C0D /* SingupOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingupOverviewViewController.swift; sourceTree = "<group>"; };
+		8DB089C121A0814900BF1C0D /* RGInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGInputViewController.swift; sourceTree = "<group>"; };
+		8DB089C321A081E000BF1C0D /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
+		8DB089C521A081F700BF1C0D /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +66,18 @@
 		8DB089A521A07B3400BF1C0D /* HackaPortoCred */ = {
 			isa = PBXGroup;
 			children = (
+				8DB089BA21A07FD100BF1C0D /* ViewController.swift */,
+				8DB089BC21A0801A00BF1C0D /* SigupViewController.swift */,
 				8DB089A621A07B3400BF1C0D /* AppDelegate.swift */,
-				8DB089A821A07B3400BF1C0D /* ViewController.swift */,
 				8DB089AA21A07B3400BF1C0D /* Main.storyboard */,
 				8DB089AD21A07B3500BF1C0D /* Assets.xcassets */,
 				8DB089AF21A07B3500BF1C0D /* LaunchScreen.storyboard */,
 				8DB089B221A07B3500BF1C0D /* Info.plist */,
 				8DB089B821A07B7400BF1C0D /* Biometrics.swift */,
+				8DB089BF21A080D000BF1C0D /* SingupOverviewViewController.swift */,
+				8DB089C121A0814900BF1C0D /* RGInputViewController.swift */,
+				8DB089C321A081E000BF1C0D /* FaceViewController.swift */,
+				8DB089C521A081F700BF1C0D /* ValidationViewController.swift */,
 			);
 			path = HackaPortoCred;
 			sourceTree = "<group>";
@@ -138,8 +153,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DB089BB21A07FD100BF1C0D /* ViewController.swift in Sources */,
+				8DB089C421A081E000BF1C0D /* FaceViewController.swift in Sources */,
 				8DB089B921A07B7400BF1C0D /* Biometrics.swift in Sources */,
-				8DB089A921A07B3400BF1C0D /* ViewController.swift in Sources */,
+				8DB089C621A081F700BF1C0D /* ValidationViewController.swift in Sources */,
+				8DB089C221A0814900BF1C0D /* RGInputViewController.swift in Sources */,
+				8DB089C021A080D000BF1C0D /* SingupOverviewViewController.swift in Sources */,
+				8DB089BD21A0801A00BF1C0D /* SigupViewController.swift in Sources */,
 				8DB089A721A07B3400BF1C0D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

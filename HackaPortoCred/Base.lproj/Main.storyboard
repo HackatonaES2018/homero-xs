@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,70 +36,98 @@
             </objects>
             <point key="canvasLocation" x="700" y="-260.41979010494754"/>
         </scene>
-        <!--View Controller-->
+        <!--Sigup View Controller-->
         <scene sceneID="P6Y-x8-5h3">
             <objects>
-                <viewController id="Vbi-8Z-Ifp" sceneMemberID="viewController">
+                <viewController id="Vbi-8Z-Ifp" customClass="SigupViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eqM-fu-wpV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rgr-s1-hiZ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2CM-fW-BFZ">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="au3-j2-XSa">
+                            <connections>
+                                <segue destination="wlN-pi-qdv" kind="show" id="Twe-06-k5Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7m-Ce-TCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1720.8" y="-297.30134932533736"/>
         </scene>
-        <!--View Controller-->
+        <!--Sigup Overview View Controller-->
         <scene sceneID="ZYD-mL-suB">
             <objects>
-                <viewController id="wlN-pi-qdv" sceneMemberID="viewController">
+                <viewController id="wlN-pi-qdv" customClass="SigupOverviewViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4FX-xR-RiA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9RZ-pR-xvR"/>
                     </view>
+                    <navigationItem key="navigationItem" id="pFP-QE-ccR">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Od4-Af-VbI">
+                            <connections>
+                                <segue destination="5uv-9R-qqu" kind="show" id="a8b-7k-DX2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOp-RI-1cQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2512.8000000000002" y="-260.41979010494754"/>
+            <point key="canvasLocation" x="2508" y="-304"/>
         </scene>
-        <!--View Controller-->
+        <!--Input View Controller-->
         <scene sceneID="Ci7-wQ-DC3">
             <objects>
-                <viewController id="5uv-9R-qqu" sceneMemberID="viewController">
+                <viewController id="5uv-9R-qqu" customClass="RGInputViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0UA-4P-mUQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cgC-YU-Qx4"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Wfu-K2-sgQ">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="rgm-DO-3rk">
+                            <connections>
+                                <segue destination="P4n-xf-WPA" kind="show" id="7uI-iI-5mA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BfO-z5-lcy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3412" y="-260.41979010494754"/>
         </scene>
-        <!--View Controller-->
+        <!--Face View Controller-->
         <scene sceneID="Z4G-bG-wJT">
             <objects>
-                <viewController id="P4n-xf-WPA" sceneMemberID="viewController">
+                <viewController id="P4n-xf-WPA" customClass="FaceViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7X3-og-k19">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="p6A-ly-sDp"/>
                     </view>
+                    <navigationItem key="navigationItem" id="JN5-pc-sXT">
+                        <barButtonItem key="rightBarButtonItem" title="Validar" id="jIE-X7-2WY">
+                            <connections>
+                                <segue destination="EY6-vz-iN9" kind="show" id="vy8-dZ-uF1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ajf-97-jrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4383.1999999999998" y="-260.41979010494754"/>
         </scene>
-        <!--View Controller-->
+        <!--Validation View Controller-->
         <scene sceneID="BPp-R6-SrG">
             <objects>
-                <viewController id="EY6-vz-iN9" sceneMemberID="viewController">
+                <viewController id="EY6-vz-iN9" customClass="ValidationViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Ft-uv-Be9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y51-7K-j64" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5168.8000000000002" y="-291.00449775112446"/>
+            <point key="canvasLocation" x="5266" y="-260"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="thB-96-aLt">
