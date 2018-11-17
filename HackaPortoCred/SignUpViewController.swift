@@ -49,6 +49,10 @@ class SignUpViewController: UIViewController {
         cell.textField.text = date?.description
     }
     @IBAction func previousAction(_ sender: UIButton) {
+        guard let indexPath = tableView.indexPathsForVisibleRows?.first else { return }
+        if 1...4 ~= indexPath.row {
+            tableView.scrollToRow(at: IndexPath(row: indexPath.row - 1, section: 0), at: .top, animated: true)
+        }
     }
 }
 
