@@ -52,6 +52,9 @@ class SignUpViewController: UIViewController {
         guard let indexPath = tableView.indexPathsForVisibleRows?.first else { return }
         view.endEditing(true)
         if 1...4 ~= indexPath.row {
+            if indexPath.row == 1 {
+                previousButton.isHidden = true
+            }
             tableView.scrollToRow(at: IndexPath(row: indexPath.row - 1, section: 0), at: .top, animated: true)
         }
     }
@@ -88,7 +91,7 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textField.text = date?.description
         } else if indexPath.row == 2 {
             cell.title = "E-Mail"
-            cell.textField.placeholder = "john.doe@test.com"
+            cell.textField.placeholder = "john.doe@mail.com"
             cell.textField.text = person.email
         } else if indexPath.row == 3 {
             cell.title = "Celular"
