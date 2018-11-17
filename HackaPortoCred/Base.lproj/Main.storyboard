@@ -85,7 +85,7 @@
                     <connections>
                         <outlet property="previousButton" destination="EIu-aD-M9V" id="4u7-Ps-Ckq"/>
                         <outlet property="tableView" destination="npd-I1-wYh" id="HAG-Vx-mNr"/>
-                        <segue destination="wlN-pi-qdv" kind="show" identifier="showOverview" id="5XQ-lF-UiW"/>
+                        <segue destination="wlN-pi-qdv" kind="show" identifier="SingupOverviewViewController" id="5XQ-lF-UiW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7m-Ce-TCd" userLabel="First Responder" sceneMemberID="firstResponder"/>

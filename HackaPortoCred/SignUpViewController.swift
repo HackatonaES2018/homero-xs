@@ -29,7 +29,7 @@ class SignUpViewController: UIViewController {
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "showInfo", let destination = segue.destination as? SingupOverviewViewController else {
+        guard segue.identifier == SingupOverviewViewController.identifier, let destination = segue.destination as? SingupOverviewViewController else {
             return
         }
         destination.person = person
@@ -58,6 +58,8 @@ class SignUpViewController: UIViewController {
             tableView.scrollToRow(at: IndexPath(row: indexPath.row - 1, section: 0), at: .top, animated: true)
         }
     }
+
+    
 }
 
 extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
@@ -113,7 +115,7 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if sender.tag == 4 {
-            print("test")
+            performSegue(withIdentifier: SingupOverviewViewController.identifier, sender: nil)
         }
     }
     

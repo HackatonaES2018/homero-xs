@@ -10,6 +10,8 @@ import UIKit
 
 class SingupOverviewViewController: UIViewController {
 
+    static let identifier = "SingupOverviewViewController"
+
     var person: Person?
     
     override func viewDidLoad() {
