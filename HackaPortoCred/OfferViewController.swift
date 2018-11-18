@@ -27,10 +27,10 @@ class OfferViewController: UIViewController {
         cardView.layer.cornerRadius = 6
         cardView.layer.borderWidth = 2
         cardView.layer.borderColor = UIColor.gray.cgColor
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        cardView.layer.shadowColor = UIColor.black.cgColor
+        cardView.layer.shadowOpacity = 0.25
+        cardView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        cardView.layer.shadowRadius = 10
         
         lock()
         PortoCredApi.shared.getOffer { (cet, error) in

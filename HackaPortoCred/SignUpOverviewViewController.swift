@@ -38,7 +38,7 @@ class SignUpOverviewViewController: UIViewController {
         }
     }
 
-    @IBAction func validateInfo(_ sender: UIBarButtonItem) {
+    @IBAction func validateInfo(_ sender: Any) {
         guard let person = person else { return }
         self.lock()
         Biometrics.shared.createUser(person) { (success, error) in
