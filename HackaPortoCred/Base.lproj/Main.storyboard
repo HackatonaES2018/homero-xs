@@ -20,23 +20,33 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEr-eh-EYP" customClass="GreenButton" customModule="HackaPortoCred" customModuleProvider="target">
                                 <rect key="frame" x="85.5" y="469" width="204" height="38"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.7725490196" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="204" id="3yo-xF-fsI"/>
                                     <constraint firstAttribute="height" constant="38" id="gac-uD-8op"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Signup">
+                                <state key="normal" title="Solicitar Crédito">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="Vbi-8Z-Ifp" kind="show" id="bLB-pm-0RS"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="a0i-uW-4qK">
+                                <rect key="frame" x="20" y="104" width="335" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="5Fu-FR-ctc"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dEr-eh-EYP" secondAttribute="bottom" constant="160" id="CUl-uE-0tx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a0i-uW-4qK" secondAttribute="trailing" constant="20" id="SAL-o5-fi4"/>
                             <constraint firstItem="dEr-eh-EYP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XKj-yz-fRT"/>
+                            <constraint firstItem="a0i-uW-4qK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lJA-Vh-BLK"/>
+                            <constraint firstItem="a0i-uW-4qK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="xku-dw-JiW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -65,7 +75,7 @@
                                     <action selector="previousAction:" destination="Vbi-8Z-Ifp" eventType="touchUpInside" id="9E0-xK-CTD"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="npd-I1-wYh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="npd-I1-wYh">
                                 <rect key="frame" x="0.0" y="124" width="375" height="443"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
@@ -292,6 +302,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fvh-IZ-v2M">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.59215686274509804" green="0.77254901960784317" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -305,5 +316,6 @@
     </scenes>
     <resources>
         <image name="Arrow" width="60" height="57"/>
+        <image name="Logo" width="1440" height="294"/>
     </resources>
 </document>
