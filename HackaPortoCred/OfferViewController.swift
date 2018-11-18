@@ -70,7 +70,10 @@ class OfferViewController: UIViewController {
             if !self.birthDate.isEmpty {
                 let df = DateFormatter()
                 df.dateFormat = "dd/MM/yyyy"
-                vc?.person.birthDate = df.date(from: birthDate)!
+                if let date = df.date(from: birthDate) {
+                    vc?.date = date
+                    vc?.person.birthDate = date
+                }
             }
         }
     }
