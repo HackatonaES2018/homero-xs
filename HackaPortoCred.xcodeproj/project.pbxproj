@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D2DF3B021A0DCCC00F2E7B0 /* PortoCredApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */; };
 		8DB089A721A07B3400BF1C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089A621A07B3400BF1C0D /* AppDelegate.swift */; };
 		8DB089AC21A07B3400BF1C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB089AA21A07B3400BF1C0D /* Main.storyboard */; };
 		8DB089AE21A07B3500BF1C0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DB089AD21A07B3500BF1C0D /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortoCredApi.swift; sourceTree = "<group>"; };
 		8DB089A321A07B3400BF1C0D /* HackaPortoCred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackaPortoCred.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB089A621A07B3400BF1C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DB089AB21A07B3400BF1C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				8DB089C521A081F700BF1C0D /* ValidationViewController.swift */,
 				91B04CFC21A08E3F002511EF /* UISignUpTableViewCell.swift */,
 				8DB8A03A21A0A2F40056F4B6 /* GreenButton.swift */,
+				8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */,
 			);
 			path = HackaPortoCred;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				8DB089C221A0814900BF1C0D /* RGInputViewController.swift in Sources */,
 				8DB089C021A080D000BF1C0D /* SignUpOverviewViewController.swift in Sources */,
 				8DB8A03B21A0A2F40056F4B6 /* GreenButton.swift in Sources */,
+				8D2DF3B021A0DCCC00F2E7B0 /* PortoCredApi.swift in Sources */,
 				8DB089BD21A0801A00BF1C0D /* SignUpViewController.swift in Sources */,
 				8DB089A721A07B3400BF1C0D /* AppDelegate.swift in Sources */,
 			);
