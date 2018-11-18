@@ -45,18 +45,6 @@ class SignUpViewController: UIViewController {
         setPageControl()
         setupDatePicker()
         previousButton.isHidden = true
-
-        
-        // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -258,6 +246,7 @@ extension SignUpViewController: UITextFieldDelegate {
     }
 
     @objc private func textFieldDidChange(_ textField: UITextField) {
+        textField.text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let indexPath = IndexPath(row: textField.tag, section: 0)
         guard let cell = tableView.cellForRow(at: indexPath) as? UISignUpTableViewCell else { return }
         if textField.text?.isEmpty ?? true {
@@ -364,9 +353,3 @@ extension String {
     }
 }
 
-extension SignUpViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-    }
-}

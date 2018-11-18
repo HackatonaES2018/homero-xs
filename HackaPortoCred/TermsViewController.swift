@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
 
 class TermsViewController: UIViewController {
     @IBOutlet weak var agreeSwitch: UISwitch!
     @IBOutlet weak var continueButton: GreenButton!
     @IBOutlet weak var termsTextView: UITextView!
     let showSuccess = "showSuccess"
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,17 @@ class TermsViewController: UIViewController {
             DispatchQueue.main.async {
                 self.unlock()
                 self.termsTextView.text = condition.conditions
+                // Ask for Authorisation from the User.
+                self.locationManager.requestAlwaysAuthorization()
+                // For use in foreground
+                self.locationManager.requestWhenInUseAuthorization()
+                
+                if CLLocationManager.locationServicesEnabled() {
+                    self.locationManager.delegate = self
+                    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                    self.locationManager.startUpdatingLocation()
+                    
+                }
             }
         }
     }
@@ -54,6 +68,7 @@ class TermsViewController: UIViewController {
             DispatchQueue.main.async {
                 self.unlock()
                 self.performSegue(withIdentifier: self.showSuccess, sender: nil)
+
             }
         }
     }
@@ -67,5 +82,12 @@ extension TermsViewController: UITextViewDelegate {
             continueButton.isEnabled = true
             continueButton.alpha = 1
         }
+    }
+}
+
+extension TermsViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
 }

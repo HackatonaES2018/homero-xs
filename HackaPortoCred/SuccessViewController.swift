@@ -23,7 +23,7 @@ class SuccessViewController: UIViewController {
         let content = UNMutableNotificationContent()
         let requestIdentifier = "rajanNotification"
         
-        content.badge = 1
+        content.badge = 0
         content.title = "Crédito disponível"
         content.body = "Você já pode resgatar seu crédito no banco XXX apresentando seu RG."
         content.categoryIdentifier = "actionCategory"
