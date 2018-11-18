@@ -11,6 +11,7 @@
 		8D06218521A08749001672E3 /* UIViewController+makePickerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D06218421A08749001672E3 /* UIViewController+makePickerImage.swift */; };
 		8D2DF3B021A0DCCC00F2E7B0 /* PortoCredApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */; };
 		8D2DF3B221A1125900F2E7B0 /* OfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2DF3B121A1125900F2E7B0 /* OfferViewController.swift */; };
+		8D2DF3B421A12EE500F2E7B0 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2DF3B321A12EE500F2E7B0 /* SuccessViewController.swift */; };
 		8DB089A721A07B3400BF1C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089A621A07B3400BF1C0D /* AppDelegate.swift */; };
 		8DB089AC21A07B3400BF1C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB089AA21A07B3400BF1C0D /* Main.storyboard */; };
 		8DB089AE21A07B3500BF1C0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DB089AD21A07B3500BF1C0D /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		8D06218421A08749001672E3 /* UIViewController+makePickerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+makePickerImage.swift"; sourceTree = "<group>"; };
 		8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortoCredApi.swift; sourceTree = "<group>"; };
 		8D2DF3B121A1125900F2E7B0 /* OfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferViewController.swift; sourceTree = "<group>"; };
+		8D2DF3B321A12EE500F2E7B0 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		8DB089A321A07B3400BF1C0D /* HackaPortoCred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackaPortoCred.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB089A621A07B3400BF1C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DB089AB21A07B3400BF1C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */,
 				8D2DF3B121A1125900F2E7B0 /* OfferViewController.swift */,
 				9E0B8DA421A1135C00B20A21 /* TermsViewController.swift */,
+				8D2DF3B321A12EE500F2E7B0 /* SuccessViewController.swift */,
 			);
 			path = HackaPortoCred;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				8DB8A03B21A0A2F40056F4B6 /* GreenButton.swift in Sources */,
 				8D2DF3B021A0DCCC00F2E7B0 /* PortoCredApi.swift in Sources */,
 				8DB089BD21A0801A00BF1C0D /* SignUpViewController.swift in Sources */,
+				8D2DF3B421A12EE500F2E7B0 /* SuccessViewController.swift in Sources */,
 				8DB089A721A07B3400BF1C0D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

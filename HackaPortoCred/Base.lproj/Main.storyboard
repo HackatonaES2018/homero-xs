@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zSN-uV-12D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zSN-uV-12D">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -531,7 +531,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BQh-D3-Eoz" kind="presentation" id="bjE-2j-yDW"/>
+                                    <action selector="continueAction" destination="fBY-lq-Kzv" eventType="touchUpInside" id="5cM-8c-qfQ"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHV-yl-uVI">
@@ -584,16 +584,17 @@
                         <outlet property="agreeSwitch" destination="pF7-yS-f8r" id="84y-Kr-krC"/>
                         <outlet property="continueButton" destination="znK-U9-BoY" id="WaJ-Hq-bnt"/>
                         <outlet property="termsTextView" destination="0Gz-V4-6aE" id="O9M-0o-FVY"/>
+                        <segue destination="BQh-D3-Eoz" kind="presentation" identifier="showSuccess" id="Fqy-w1-QKJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Im7-R6-YeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6084" y="-260"/>
         </scene>
-        <!--View Controller-->
+        <!--Success View Controller-->
         <scene sceneID="ckz-ct-vxU">
             <objects>
-                <viewController id="BQh-D3-Eoz" sceneMemberID="viewController">
+                <viewController id="BQh-D3-Eoz" customClass="SuccessViewController" customModule="HackaPortoCred" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IvZ-x9-Jmm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

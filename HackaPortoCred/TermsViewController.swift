@@ -12,6 +12,7 @@ class TermsViewController: UIViewController {
     @IBOutlet weak var agreeSwitch: UISwitch!
     @IBOutlet weak var continueButton: GreenButton!
     @IBOutlet weak var termsTextView: UITextView!
+    let showSuccess = "showSuccess"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,16 @@ class TermsViewController: UIViewController {
     @IBAction func changeSwitch(_ sender: UISwitch) {
         continueButton.isEnabled = sender.isOn
         continueButton.alpha = sender.isOn ? 1 : 0.5
+    }
+    @IBAction func continueAction() {
+        lock()
+        PortoCredApi.shared.confirmProposal { (situation, _) in
+            guard let situation = situation else { return }
+            DispatchQueue.main.async {
+                self.unlock()
+                self.performSegue(withIdentifier: self.showSuccess, sender: nil)
+            }
+        }
     }
 }
 
