@@ -6,6 +6,7 @@
 //  Copyright © 2018 HomeroXS. All rights reserved.
 //
 
+import YPImagePicker
 import UIKit
 
 class OfferViewController: UIViewController {
@@ -55,6 +56,75 @@ class OfferViewController: UIViewController {
                 self.offerValue.text = self.numberFormatter.string(from: number)
                 self.numberOfParcels.text = "\(cet.term - Int.random(in: 1...3)) Parcelas"
             }
+        }
+    }
+    
+    private var cpf: String = ""
+    private var birthDate: String = ""
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSignUp" {
+            let vc = segue.destination as? SignUpViewController
+            vc?.person.cpf = cpf
+            
+            if !self.birthDate.isEmpty {
+                let df = DateFormatter()
+                df.dateFormat = "dd/MM/yyyy"
+                vc?.person.birthDate = df.date(from: birthDate)!
+            }
+        }
+    }
+    
+    @IBAction func acceptOffer(_ sender: GreenButton, forEvent event: UIEvent) {
+        showImageSelection() { image in
+            guard let image = image else {
+                return
+            }
+            
+            self.lock()
+            VisionApi.shared.parse(image) { cpf, birthDate in
+                self.unlock()
+                print(cpf, birthDate)
+                self.cpf = cpf
+                self.birthDate = birthDate
+                self.performSegue(withIdentifier: "showSignUp", sender: self)
+            }
+        }
+    }
+    
+    private func showImageSelection(completion: @escaping (UIImage?) -> Void) {
+        var config = YPImagePickerConfiguration()
+        config.library.mediaType = .photo
+        config.library.onlySquare  = false
+        config.onlySquareImagesFromCamera = false
+        config.targetImageSize = .cappedTo(size: 1280)
+        config.usesFrontCamera = false
+        config.showsFilters = false
+        config.shouldSaveNewPicturesToAlbum = false
+        config.screens = [.photo, .library]
+        config.startOnScreen = .photo
+        config.showsCrop = .rectangle(ratio: (4/3))
+        config.wordings.libraryTitle = "Galeria"
+        config.wordings.albumsTitle = "Álbuns"
+        config.wordings.cameraTitle = "Câmera"
+        config.wordings.cancel = "Cancelar"
+        config.wordings.crop = "Cortar"
+        config.wordings.done = "OK"
+        config.wordings.next = "Próximo"
+        config.wordings.processing = "Processando..."
+        config.wordings.save = "Salvar"
+        config.hidesStatusBar = false
+        config.library.maxNumberOfItems = 1
+        config.library.minNumberOfItems = 1
+        config.library.numberOfItemsInRow = 3
+        config.library.spacingBetweenItems = 2
+        config.isScrollToChangeModesEnabled = false
+        
+        let picker = YPImagePicker(configuration: config)
+        present(picker, animated: true)
+        picker.didFinishPicking { medias, status in
+            picker.dismiss(animated: true)
+            completion(medias.singlePhoto?.image)
         }
     }
 }

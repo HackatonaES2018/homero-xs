@@ -28,6 +28,7 @@
 		91B04CFD21A08E3F002511EF /* UISignUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B04CFC21A08E3F002511EF /* UISignUpTableViewCell.swift */; };
 		9E0B8DA521A1135C00B20A21 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0B8DA421A1135C00B20A21 /* TermsViewController.swift */; };
 		9E2809A421A0B4260037C292 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2809A321A0B4260037C292 /* SwiftyJSON.swift */; };
+		9E66C48E21A143CA0071CE47 /* VisionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66C48D21A143CA0071CE47 /* VisionApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		91B04CFC21A08E3F002511EF /* UISignUpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISignUpTableViewCell.swift; sourceTree = "<group>"; };
 		9E0B8DA421A1135C00B20A21 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		9E2809A321A0B4260037C292 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		9E66C48D21A143CA0071CE47 /* VisionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				9E0B8DA421A1135C00B20A21 /* TermsViewController.swift */,
 				8D2DF3B321A12EE500F2E7B0 /* SuccessViewController.swift */,
 				91A14D7B21A125C0001DBA33 /* QuestionsViewController.swift */,
+				9E66C48D21A143CA0071CE47 /* VisionApi.swift */,
 			);
 			path = HackaPortoCred;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				8D06218521A08749001672E3 /* UIViewController+makePickerImage.swift in Sources */,
 				9E0B8DA521A1135C00B20A21 /* TermsViewController.swift in Sources */,
 				8DB089C621A081F700BF1C0D /* ValidationViewController.swift in Sources */,
+				9E66C48E21A143CA0071CE47 /* VisionApi.swift in Sources */,
 				8DB089C221A0814900BF1C0D /* RGInputViewController.swift in Sources */,
 				8DB089C021A080D000BF1C0D /* SignUpOverviewViewController.swift in Sources */,
 				8DB8A03B21A0A2F40056F4B6 /* GreenButton.swift in Sources */,
