@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SignUpViewController: UIViewController {
 
@@ -36,12 +37,26 @@ class SignUpViewController: UIViewController {
         return dateFormatter
     }()
 
+    let locationManager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
         setPageControl()
         setupDatePicker()
         previousButton.isHidden = true
+
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -321,5 +336,12 @@ extension String {
             numbers[9] * 2 ) % 11
         let dv2 = soma2 > 9 ? 0 : soma2
         return dv1 == numbers[9] && dv2 == numbers[10]
+    }
+}
+
+extension SignUpViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
 }
