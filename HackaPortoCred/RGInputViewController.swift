@@ -18,7 +18,7 @@ class RGInputViewController: UIViewController {
         config.library.onlySquare  = false
         config.onlySquareImagesFromCamera = false
         config.targetImageSize = .cappedTo(size: 1280)
-        config.usesFrontCamera = true
+        config.usesFrontCamera = false
         config.showsFilters = false
         config.shouldSaveNewPicturesToAlbum = false
         config.screens = [.photo, .library]
