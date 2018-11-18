@@ -11,12 +11,17 @@ import UIKit
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var previousButton: UIButton!
+
     @IBOutlet weak var tableView: UITableView!
+
     var person: Person = Person(name: "",
                                 email: "",
                                 birthDate: Date(),
                                 cpf: "",
                                 phoneNumber: "")
+
+    private let pageControll = UIPageControl()
+
     let datePicker = UIDatePicker()
     var date: Date? {
         didSet {
@@ -30,14 +35,14 @@ class SignUpViewController: UIViewController {
         dateFormatter.dateFormat = "dd/MM/yyyy"
         return dateFormatter
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
+        setPageControl()
         setupDatePicker()
         previousButton.isHidden = true
     }
-    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == SignUpOverviewViewController.identifier, let destination = segue.destination as? SignUpOverviewViewController else {
@@ -51,7 +56,20 @@ class SignUpViewController: UIViewController {
         datePicker.maximumDate = Date()
         datePicker.datePickerMode = .date
     }
-    
+
+    private func setPageControl() {
+        pageControll.numberOfPages = 5
+        pageControll.currentPageIndicatorTintColor = #colorLiteral(red: 0.5921568627, green: 0.7725490196, blue: 0.1411764706, alpha: 1)
+        pageControll.pageIndicatorTintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        view.addSubview(pageControll)
+        pageControll.translatesAutoresizingMaskIntoConstraints = false
+        let marginTop: CGFloat = 20
+        NSLayoutConstraint.activate([
+            pageControll.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: marginTop),
+            pageControll.leftAnchor.constraint(equalTo: view.leftAnchor),
+            pageControll.rightAnchor.constraint(equalTo: view.rightAnchor)
+            ])
+    }
     @objc func getDate(sender: UIDatePicker) {
         date = sender.date
         guard let cell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? UISignUpTableViewCell else {
@@ -64,6 +82,9 @@ class SignUpViewController: UIViewController {
     @IBAction func previousAction(_ sender: UIButton) {
         guard let indexPath = tableView.indexPathsForVisibleRows?.first else { return }
         view.endEditing(true)
+        if indexPath.row != 0 {
+            pageControll.currentPage = indexPath.row - 1
+        }
         if 1...4 ~= indexPath.row {
             if indexPath.row == 1 {
                 previousButton.isHidden = true
@@ -123,6 +144,9 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc func nextAction(sender: UIButton) {
         previousButton.isHidden = false
+        if sender.tag != 4 {
+            pageControll.currentPage = sender.tag + 1
+        }
         view.endEditing(true)
         if 0..<4 ~= sender.tag {
             tableView.scrollToRow(at: IndexPath(row: sender.tag + 1, section: 0), at: .bottom, animated: true)
