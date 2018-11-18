@@ -10,6 +10,7 @@
 		642EDB2DBCD686468501189E /* Pods_HackaPortoCred.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE5F446B80981B08CECDD0D /* Pods_HackaPortoCred.framework */; };
 		8D06218521A08749001672E3 /* UIViewController+makePickerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D06218421A08749001672E3 /* UIViewController+makePickerImage.swift */; };
 		8D2DF3B021A0DCCC00F2E7B0 /* PortoCredApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */; };
+		8D2DF3B221A1125900F2E7B0 /* OfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2DF3B121A1125900F2E7B0 /* OfferViewController.swift */; };
 		8DB089A721A07B3400BF1C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089A621A07B3400BF1C0D /* AppDelegate.swift */; };
 		8DB089AC21A07B3400BF1C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB089AA21A07B3400BF1C0D /* Main.storyboard */; };
 		8DB089AE21A07B3500BF1C0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DB089AD21A07B3500BF1C0D /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		7FE5F446B80981B08CECDD0D /* Pods_HackaPortoCred.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackaPortoCred.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D06218421A08749001672E3 /* UIViewController+makePickerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+makePickerImage.swift"; sourceTree = "<group>"; };
 		8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortoCredApi.swift; sourceTree = "<group>"; };
+		8D2DF3B121A1125900F2E7B0 /* OfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferViewController.swift; sourceTree = "<group>"; };
 		8DB089A321A07B3400BF1C0D /* HackaPortoCred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackaPortoCred.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DB089A621A07B3400BF1C0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DB089AB21A07B3400BF1C0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				91B04CFC21A08E3F002511EF /* UISignUpTableViewCell.swift */,
 				8DB8A03A21A0A2F40056F4B6 /* GreenButton.swift */,
 				8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */,
+				8D2DF3B121A1125900F2E7B0 /* OfferViewController.swift */,
 			);
 			path = HackaPortoCred;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				8DB089BB21A07FD100BF1C0D /* ViewController.swift in Sources */,
 				91B04CFD21A08E3F002511EF /* UISignUpTableViewCell.swift in Sources */,
 				8DB089C421A081E000BF1C0D /* FaceViewController.swift in Sources */,
+				8D2DF3B221A1125900F2E7B0 /* OfferViewController.swift in Sources */,
 				8DB089B921A07B7400BF1C0D /* Biometrics.swift in Sources */,
 				9E2809A421A0B4260037C292 /* SwiftyJSON.swift in Sources */,
 				8D06218521A08749001672E3 /* UIViewController+makePickerImage.swift in Sources */,
