@@ -29,7 +29,7 @@ class FaceViewController: UIViewController {
 extension FaceViewController: UINavigationControllerDelegate {}
 extension FaceViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+        guard let editedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             return
         }
         
