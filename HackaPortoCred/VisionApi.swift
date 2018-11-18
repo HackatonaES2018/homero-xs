@@ -80,13 +80,13 @@ final class VisionApi {
                 birthDate = allText.substring(with: birthDateRegex.range)
             }
             
-            let nameRegex = try! NSRegularExpression(pattern: "NOME\\n.*\\nDOC\\.")
+            let nameRegex = try! NSRegularExpression(pattern: "NOME\\n.*\\n")
             if let fromNameRegex = nameRegex.matches(in: allText as String,
                                                       options: [],
                                                       range: NSRange(location: 0, length: allText.length)).first {
                 name = allText.substring(with: fromNameRegex.range)
                 name = name.replacingOccurrences(of: "NOME\n", with: "")
-                    .replacingOccurrences(of: "\nDOC.", with: "")
+                    .replacingOccurrences(of: "\n", with: "")
                     .capitalized
             }
             DispatchQueue.main.async { completion(cpf, birthDate, name) }

@@ -128,121 +128,139 @@ class Biometrics {
     }
     
     func uploadFacePhoto(_ image: UIImage, completion: @escaping (Bool?, Error?) -> Void) {
-        let base64 = image.jpegData(compressionQuality: 0.7)!.base64EncodedString()
-        let payload = ["imagebase64": base64]
-        let request = self.makeRequest(url: faceInsert, method: .post, auth: true, payload: payload)
-        
-        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                guard let data = data else {
-                    DispatchQueue.main.async { completion(false, nil) }
-                    return
-                }
-                
-                if let fuckingError = JSON(data)["Error"]["Description"].string {
-                    let userInfo = [NSLocalizedDescriptionKey: fuckingError]
-                    let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
-                    DispatchQueue.main.async { completion(false, err) }
-                } else {
-                    DispatchQueue.main.async { completion(false, nil) }
-                }
-                
-                return
-            }
-            
-            guard let data = data else {
-                DispatchQueue.main.async { completion(false, nil) }
-                return
-            }
-            
-            if let fuckingError = JSON(data)["FaceInsertResult"]["Error"].dictionary {
-                let userInfo = [NSLocalizedDescriptionKey: fuckingError["Description"]!.string]
-                let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
-                DispatchQueue.main.async { completion(false, err) }
-            } else {
-                DispatchQueue.main.async { completion(true, nil) }
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            completion(true, nil)
         }
         
-        dataTask.resume()
+        return
+        
+//        let base64 = image.jpegData(compressionQuality: 0.7)!.base64EncodedString()
+//        let payload = ["imagebase64": base64]
+//        let request = self.makeRequest(url: faceInsert, method: .post, auth: true, payload: payload)
+//
+//        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+//                guard let data = data else {
+//                    DispatchQueue.main.async { completion(false, nil) }
+//                    return
+//                }
+//
+//                if let fuckingError = JSON(data)["Error"]["Description"].string {
+//                    let userInfo = [NSLocalizedDescriptionKey: fuckingError]
+//                    let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+//                    DispatchQueue.main.async { completion(false, err) }
+//                } else {
+//                    DispatchQueue.main.async { completion(false, nil) }
+//                }
+//
+//                return
+//            }
+//
+//            guard let data = data else {
+//                DispatchQueue.main.async { completion(false, nil) }
+//                return
+//            }
+//
+//            if let fuckingError = JSON(data)["FaceInsertResult"]["Error"].dictionary {
+//                let userInfo = [NSLocalizedDescriptionKey: fuckingError["Description"]!.string]
+//                let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+//                DispatchQueue.main.async { completion(false, err) }
+//            } else {
+//                DispatchQueue.main.async { completion(true, nil) }
+//            }
+//        }
+//
+//        dataTask.resume()
     }
     
     func uploadDocPhoto(_ image: UIImage, completion: @escaping (Bool?, Error?) -> Void) {
-        let base64 = image.jpegData(compressionQuality: 0.7)!.base64EncodedString()
-        let payload = ["imagebase64": base64]
-        let request = self.makeRequest(url: docInsert, method: .post, auth: true, payload: payload)
-        
-        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                guard let data = data else {
-                    DispatchQueue.main.async { completion(false, nil) }
-                    return
-                }
-                
-                if let fuckingError = JSON(data)["Error"]["Description"].string {
-                    let userInfo = [NSLocalizedDescriptionKey: fuckingError]
-                    let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
-                    DispatchQueue.main.async { completion(false, err) }
-                } else {
-                    DispatchQueue.main.async { completion(false, nil) }
-                }
-                
-                return
-            }
-            
-            guard let data = data else {
-                DispatchQueue.main.async { completion(false, nil) }
-                return
-            }
-            
-            if let fuckingError = JSON(data)["DocumentInsertResult"]["Error"].dictionary {
-                let userInfo = [NSLocalizedDescriptionKey: fuckingError["Description"]!.string]
-                let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
-                DispatchQueue.main.async { completion(false, err) }
-            } else {
-                DispatchQueue.main.async { completion(true, nil) }
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            completion(true, nil)
         }
         
-        dataTask.resume()
+        return
+        
+//        let base64 = image.jpegData(compressionQuality: 0.7)!.base64EncodedString()
+//        let payload = ["imagebase64": base64]
+//        let request = self.makeRequest(url: docInsert, method: .post, auth: true, payload: payload)
+//
+//        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+//                guard let data = data else {
+//                    DispatchQueue.main.async { completion(false, nil) }
+//                    return
+//                }
+//
+//                if let fuckingError = JSON(data)["Error"]["Description"].string {
+//                    let userInfo = [NSLocalizedDescriptionKey: fuckingError]
+//                    let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+//                    DispatchQueue.main.async { completion(false, err) }
+//                } else {
+//                    DispatchQueue.main.async { completion(false, nil) }
+//                }
+//
+//                return
+//            }
+//
+//            guard let data = data else {
+//                DispatchQueue.main.async { completion(false, nil) }
+//                return
+//            }
+//
+//            if let fuckingError = JSON(data)["DocumentInsertResult"]["Error"].dictionary {
+//                let userInfo = [NSLocalizedDescriptionKey: fuckingError["Description"]!.string]
+//                let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+//                DispatchQueue.main.async { completion(false, err) }
+//            } else {
+//                DispatchQueue.main.async { completion(true, nil) }
+//            }
+//        }
+//
+//        dataTask.resume()
     }
     
     func validate(completion: @escaping (Bool?, Error?) -> Void) {
-        let request = makeRequest(url: processExecute, method: .get, auth: true)
-        
-        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                guard let data = data else {
-                    DispatchQueue.main.async { completion(false, nil) }
-                    return
-                }
-                
-                if let fuckingError = JSON(data)["Error"]["Description"].string {
-                    let userInfo = [NSLocalizedDescriptionKey: fuckingError]
-                    let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
-                    DispatchQueue.main.async { completion(false, err) }
-                } else {
-                    DispatchQueue.main.async { completion(false, nil) }
-                }
-                
-                return
-            }
-            
-            guard let data = data else {
-                DispatchQueue.main.async { completion(false, nil) }
-                return
-            }
-            
-            if let fuckingError = JSON(data)["ExecuteInsertResult"]["Error"]["Description"].string {
-                let userInfo = [NSLocalizedDescriptionKey: fuckingError]
-                let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
-                DispatchQueue.main.async { completion(false, err) }
-            } else {
-                self.haltAndCatchFire(completion: completion)
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            completion(true, nil)
         }
         
-        dataTask.resume()
+        return
+        
+//        let request = makeRequest(url: processExecute, method: .get, auth: true)
+//
+//        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+//                guard let data = data else {
+//                    DispatchQueue.main.async { completion(false, nil) }
+//                    return
+//                }
+//
+//                if let fuckingError = JSON(data)["Error"]["Description"].string {
+//                    let userInfo = [NSLocalizedDescriptionKey: fuckingError]
+//                    let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+//                    DispatchQueue.main.async { completion(false, err) }
+//                } else {
+//                    DispatchQueue.main.async { completion(false, nil) }
+//                }
+//
+//                return
+//            }
+//
+//            guard let data = data else {
+//                DispatchQueue.main.async { completion(false, nil) }
+//                return
+//            }
+//
+//            if let fuckingError = JSON(data)["ExecuteInsertResult"]["Error"]["Description"].string {
+//                let userInfo = [NSLocalizedDescriptionKey: fuckingError]
+//                let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
+//                DispatchQueue.main.async { completion(false, err) }
+//            } else {
+//                self.haltAndCatchFire(completion: completion)
+//            }
+//        }
+//
+//        dataTask.resume()
     }
     
     private func haltAndCatchFire(completion: @escaping (Bool?, Error?) -> Void) {
