@@ -11,7 +11,7 @@ import UIKit
 class RGInputViewController: UIViewController {
 
     let imagePicker = UIImagePickerController()
-    let showRG = "showRG"
+    let showValidation = "showValidation"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ extension RGInputViewController: UIImagePickerControllerDelegate {
                 self.showAlert(title: "Erro", message: error.localizedDescription)
             } else if let successed = successed {
                 if successed {
-                    self.performSegue(withIdentifier: self.showRG, sender: nil)
+                    self.performSegue(withIdentifier: self.showValidation, sender: nil)
                 } else {
                     self.showAlert(title: "Erro", message: "Não possivel reconhecer o rg.")
                 }

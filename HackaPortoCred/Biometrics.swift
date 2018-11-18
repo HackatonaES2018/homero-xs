@@ -134,7 +134,12 @@ class Biometrics {
         
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                if let fuckingError = JSON(data!)["Error"]["Description"].string {
+                guard let data = data else {
+                    DispatchQueue.main.async { completion(false, nil) }
+                    return
+                }
+                
+                if let fuckingError = JSON(data)["Error"]["Description"].string {
                     let userInfo = [NSLocalizedDescriptionKey: fuckingError]
                     let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
                     DispatchQueue.main.async { completion(false, err) }
@@ -145,7 +150,12 @@ class Biometrics {
                 return
             }
             
-            if let fuckingError = JSON(data!)["FaceInsertResult"]["Error"].dictionary {
+            guard let data = data else {
+                DispatchQueue.main.async { completion(false, nil) }
+                return
+            }
+            
+            if let fuckingError = JSON(data)["FaceInsertResult"]["Error"].dictionary {
                 let userInfo = [NSLocalizedDescriptionKey: fuckingError["Description"]!.string]
                 let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
                 DispatchQueue.main.async { completion(false, err) }
@@ -164,7 +174,12 @@ class Biometrics {
         
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                if let fuckingError = JSON(data!)["Error"]["Description"].string {
+                guard let data = data else {
+                    DispatchQueue.main.async { completion(false, nil) }
+                    return
+                }
+                
+                if let fuckingError = JSON(data)["Error"]["Description"].string {
                     let userInfo = [NSLocalizedDescriptionKey: fuckingError]
                     let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
                     DispatchQueue.main.async { completion(false, err) }
@@ -175,7 +190,12 @@ class Biometrics {
                 return
             }
             
-            if let fuckingError = JSON(data!)["DocumentInsertResult"]["Error"].dictionary {
+            guard let data = data else {
+                DispatchQueue.main.async { completion(false, nil) }
+                return
+            }
+            
+            if let fuckingError = JSON(data)["DocumentInsertResult"]["Error"].dictionary {
                 let userInfo = [NSLocalizedDescriptionKey: fuckingError["Description"]!.string]
                 let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
                 DispatchQueue.main.async { completion(false, err) }
@@ -192,7 +212,12 @@ class Biometrics {
         
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                if let fuckingError = JSON(data!)["Error"]["Description"].string {
+                guard let data = data else {
+                    DispatchQueue.main.async { completion(false, nil) }
+                    return
+                }
+                
+                if let fuckingError = JSON(data)["Error"]["Description"].string {
                     let userInfo = [NSLocalizedDescriptionKey: fuckingError]
                     let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
                     DispatchQueue.main.async { completion(false, err) }
@@ -203,7 +228,12 @@ class Biometrics {
                 return
             }
             
-            if let fuckingError = JSON(data!)["ExecuteInsertResult"]["Error"]["Description"].string {
+            guard let data = data else {
+                DispatchQueue.main.async { completion(false, nil) }
+                return
+            }
+            
+            if let fuckingError = JSON(data)["ExecuteInsertResult"]["Error"]["Description"].string {
                 let userInfo = [NSLocalizedDescriptionKey: fuckingError]
                 let err = NSError(domain: "sofunciona", code: 1, userInfo: userInfo)
                 DispatchQueue.main.async { completion(false, err) }
