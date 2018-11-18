@@ -176,8 +176,9 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.button.isEnabled = true
                 cell.button.alpha = 1
             }
-            
-            if !person.cpf.isValidCPF {
+            var cpfAUX = person.cpf.replacingOccurrences(of: ".", with: "")
+            cpfAUX = person.cpf.replacingOccurrences(of: "-", with: "")
+            if !cpfAUX.isValidCPF {
                 cell.button.isEnabled = false
                 cell.button.alpha = 0.6
             } else {
@@ -244,12 +245,35 @@ extension SignUpViewController: UITextFieldDelegate {
             cell.button.alpha = 1
         }
 
-        if textField.tag == 4 && !(textField.text ?? "").isValidCPF {
-            cell.button.isEnabled = false
-            cell.button.alpha = 0.6
-        } else {
-            cell.button.isEnabled = true
-            cell.button.alpha = 1
+        if textField.tag == 4 {
+            textField.text = textField.text?.replacingOccurrences(of: ".", with: "")
+            textField.text = textField.text?.replacingOccurrences(of: "-", with: "")
+            if textField.text!.count > 11 {
+                textField.text = String(textField.text!.dropLast())
+            }
+            if !textField.text!.isValidCPF {
+                cell.button.isEnabled = false
+                cell.button.alpha = 0.6
+            } else {
+                cell.button.isEnabled = true
+                cell.button.alpha = 1
+            }
+            if textField.text?.count ?? 0 > 9 {
+                let index1 = textField.text!.index(textField.text!.startIndex, offsetBy: 3)
+                textField.text?.insert(".", at: index1)
+                let index2 = textField.text!.index(textField.text!.startIndex, offsetBy: 7)
+                textField.text?.insert(".", at: index2)
+                let index3 = textField.text!.index(textField.text!.startIndex, offsetBy: 11)
+                textField.text?.insert("-", at: index3)
+            } else if textField.text?.count ?? 0 > 6 {
+                let index1 = textField.text!.index(textField.text!.startIndex, offsetBy: 3)
+                textField.text?.insert(".", at: index1)
+                let index2 = textField.text!.index(textField.text!.startIndex, offsetBy: 7)
+                textField.text?.insert(".", at: index2)
+            } else if textField.text?.count ?? 0 > 3 {
+                let index = textField.text!.index(textField.text!.startIndex, offsetBy: 3)
+                textField.text?.insert(".", at: index)
+            }
         }
     }
 
