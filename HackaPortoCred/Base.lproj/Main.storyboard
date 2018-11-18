@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zSN-uV-12D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zSN-uV-12D">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="width" constant="204" id="3yo-xF-fsI"/>
                                     <constraint firstAttribute="height" constant="38" id="gac-uD-8op"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Simular Crédito">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="a0i-uW-4qK">
-                                <rect key="frame" x="20" y="104" width="335" height="100"/>
+                                <rect key="frame" x="60" y="64" width="255" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="5Fu-FR-ctc"/>
                                 </constraints>
@@ -75,19 +75,19 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dEr-eh-EYP" secondAttribute="bottom" constant="160" id="CUl-uE-0tx"/>
                             <constraint firstItem="ue3-w6-Mh2" firstAttribute="top" secondItem="Ku8-GI-v84" secondAttribute="bottom" constant="5" id="Ek2-wz-J3a"/>
                             <constraint firstItem="Ku8-GI-v84" firstAttribute="top" secondItem="mnT-Dy-HgX" secondAttribute="bottom" id="J1J-1F-akz"/>
+                            <constraint firstItem="Ku8-GI-v84" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JpL-pj-vBb"/>
                             <constraint firstItem="ue3-w6-Mh2" firstAttribute="leading" secondItem="Ku8-GI-v84" secondAttribute="leading" id="Nuh-32-eJO"/>
-                            <constraint firstItem="mnT-Dy-HgX" firstAttribute="top" secondItem="a0i-uW-4qK" secondAttribute="bottom" constant="100" id="PSj-Gq-lpY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a0i-uW-4qK" secondAttribute="trailing" constant="20" id="SAL-o5-fi4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Okv-mH-0ui" secondAttribute="bottom" constant="40" id="SIO-ih-WN1"/>
                             <constraint firstItem="dEr-eh-EYP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XKj-yz-fRT"/>
                             <constraint firstItem="Ku8-GI-v84" firstAttribute="leading" secondItem="mnT-Dy-HgX" secondAttribute="leading" id="eDz-ji-cf2"/>
-                            <constraint firstItem="a0i-uW-4qK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lJA-Vh-BLK"/>
+                            <constraint firstItem="a0i-uW-4qK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="lJA-Vh-BLK"/>
                             <constraint firstItem="Okv-mH-0ui" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lQv-H6-agX"/>
                             <constraint firstItem="mnT-Dy-HgX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="nwC-2r-zQX"/>
                             <constraint firstItem="ue3-w6-Mh2" firstAttribute="trailing" secondItem="Ku8-GI-v84" secondAttribute="trailing" id="qoj-l3-yUd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mnT-Dy-HgX" secondAttribute="trailing" constant="40" id="sQ9-F2-Mdu"/>
+                            <constraint firstItem="a0i-uW-4qK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tbH-ab-9KL"/>
                             <constraint firstItem="Ku8-GI-v84" firstAttribute="trailing" secondItem="mnT-Dy-HgX" secondAttribute="trailing" id="wXs-pf-Bfg"/>
-                            <constraint firstItem="a0i-uW-4qK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="xku-dw-JiW"/>
+                            <constraint firstItem="a0i-uW-4qK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xku-dw-JiW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -194,7 +194,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confira seus dados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLH-ck-3q5">
                                 <rect key="frame" x="20" y="104" width="335" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -332,7 +332,7 @@
                                     <constraint firstAttribute="width" constant="200" id="eD7-v4-uaK"/>
                                     <constraint firstAttribute="height" constant="40" id="q79-W4-L7o"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Escolher foto">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -342,7 +342,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agora, uma foto..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0k-pO-8tv">
                                 <rect key="frame" x="50" y="139" width="275" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -385,7 +385,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="... e um documento!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgu-aV-GkN">
                                 <rect key="frame" x="50" y="139" width="275" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -402,7 +402,7 @@
                                     <constraint firstAttribute="width" constant="200" id="tvp-8U-J1O"/>
                                     <constraint firstAttribute="height" constant="40" id="wNG-8U-Zk6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Tirar foto">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -505,7 +505,7 @@
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contrato" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxa-Aw-DG1">
                                 <rect key="frame" x="37.5" y="84" width="300" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -516,11 +516,12 @@
                                     <constraint firstAttribute="width" constant="200" id="NIU-nL-Cmi"/>
                                     <constraint firstAttribute="height" constant="40" id="kGx-1x-QRz"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Continuar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BQh-D3-Eoz" kind="presentation" id="6EX-sS-X0n"/>
+                                    <segue destination="BQh-D3-Eoz" kind="presentation" id="bjE-2j-yDW"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHV-yl-uVI">
@@ -572,6 +573,7 @@
                     <connections>
                         <outlet property="agreeSwitch" destination="pF7-yS-f8r" id="84y-Kr-krC"/>
                         <outlet property="continueButton" destination="znK-U9-BoY" id="WaJ-Hq-bnt"/>
+                        <outlet property="termsTextView" destination="0Gz-V4-6aE" id="O9M-0o-FVY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Im7-R6-YeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -716,7 +718,7 @@ Obrigado por utilizar nossos serviços.</string>
                                     <constraint firstAttribute="height" constant="38" id="56e-DH-1wZ"/>
                                     <constraint firstAttribute="width" constant="190" id="MBe-B3-6Em"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Quero esta oferta">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -730,7 +732,7 @@ Obrigado por utilizar nossos serviços.</string>
                                     <constraint firstAttribute="height" constant="38" id="JMY-uL-f3W"/>
                                     <constraint firstAttribute="width" constant="190" id="Xgi-1Z-TMz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Outra oferta">
                                     <color key="titleColor" red="0.59215686270000001" green="0.7725490196" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
