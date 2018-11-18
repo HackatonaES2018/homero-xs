@@ -18,7 +18,7 @@ class ValidationViewController: UIViewController {
                 self.showAlert(title: "Erro", message: error.localizedDescription)
             } else if let successed = successed {
                 if successed {
-                    self.showAlert(title: "Erro", message: "Foi possivel validar")
+                    self.performSegue(withIdentifier: "showTerms", sender: self)
                 } else {
                     self.showAlert(title: "Erro", message: "Não possivel validar")
                 }
