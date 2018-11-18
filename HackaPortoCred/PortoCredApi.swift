@@ -36,6 +36,14 @@ struct Cet: Decodable {
     }
 }
 
+struct Condition: Decodable {
+    let conditions: String
+    
+    enum CodingKeys: String, CodingKey {
+        case conditions = "texto-condicoes"
+    }
+}
+
 struct CustomError: Error {
     
 }
@@ -53,7 +61,8 @@ class PortoCredApi {
             completion(nil, CocoaError(.coderInvalidValue))
             return
         }
-        let urlRequest = URLRequest(url: url)
+        var urlRequest = URLRequest(url: url)
+        urlRequest.allHTTPHeaderFields = [clientIdKey: clientId]
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard let data = data else {
@@ -72,6 +81,35 @@ class PortoCredApi {
             } catch {
                 completion(nil, error)
             }
-        }
+        }.resume()
     }
+    
+    func getConditions(completion: @escaping (Condition?, Error?) -> Void) {
+        let urlString = "https://sb-api.portocred.com.br/credito-pessoal-demo/v1/propostas/1/condicoes"
+        guard let url = URL(string: urlString) else {
+            completion(nil, CocoaError(.coderInvalidValue))
+            return
+        }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.allHTTPHeaderFields = [clientIdKey: clientId]
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard let data = data else {
+                if let error = error {
+                    completion(nil, error)
+                } else {
+                    completion(nil, CustomError())
+                }
+                return
+            }
+            
+            do {
+                let condition = try self.decoder.decode(Condition.self, from: data)
+                completion(condition, nil)
+            } catch {
+                completion(nil, error)
+            }
+        }.resume()
+    }
+    
 }
