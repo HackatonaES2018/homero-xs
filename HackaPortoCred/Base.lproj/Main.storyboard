@@ -266,7 +266,7 @@
                         <viewLayoutGuide key="safeArea" id="9RZ-pR-xvR"/>
                     </view>
                     <navigationItem key="navigationItem" id="pFP-QE-ccR">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="Od4-Af-VbI">
+                        <barButtonItem key="rightBarButtonItem" title="Continuar" id="Od4-Af-VbI">
                             <connections>
                                 <action selector="validateInfo:" destination="wlN-pi-qdv" id="U8N-Ed-Oax"/>
                             </connections>
@@ -334,13 +334,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cgC-YU-Qx4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Wfu-K2-sgQ">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="rgm-DO-3rk">
-                            <connections>
-                                <segue destination="P4n-xf-WPA" kind="show" id="7uI-iI-5mA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Wfu-K2-sgQ"/>
                     <connections>
                         <segue destination="P4n-xf-WPA" kind="show" identifier="showRG" id="GCF-ZK-0Fi"/>
                     </connections>
@@ -398,13 +392,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p6A-ly-sDp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JN5-pc-sXT">
-                        <barButtonItem key="rightBarButtonItem" title="Validar" id="jIE-X7-2WY">
-                            <connections>
-                                <segue destination="EY6-vz-iN9" kind="show" id="vy8-dZ-uF1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="JN5-pc-sXT"/>
+                    <connections>
+                        <segue destination="EY6-vz-iN9" kind="show" identifier="showValidation" id="Xhn-Eu-Rh7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ajf-97-jrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -451,9 +442,6 @@
         <image name="Logo" width="1440" height="294"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7uI-iI-5mA"/>
-        <segue reference="7ot-vH-Ade"/>
-        <segue reference="7uI-iI-5mA"/>
         <segue reference="9H8-Yh-gn0"/>
     </inferredMetricsTieBreakers>
 </document>
