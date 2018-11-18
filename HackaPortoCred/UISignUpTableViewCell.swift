@@ -1,0 +1,108 @@
+//
+//  UISignUpTableViewCell.swift
+//  HackaPortoCred
+//
+//  Created by Eduardo Fornari on 17/11/18.
+//  Copyright © 2018 HomeroXS. All rights reserved.
+//
+
+import UIKit
+
+class UISignUpTableViewCell: UITableViewCell {
+
+    static let identifier = String(describing: self)
+
+    private let label = UILabel()
+    public var title: String! {
+        didSet {
+            label.text = "\(title ?? ""):"
+        }
+    }
+
+    private let line = UIView(frame: .zero)
+
+    public let textField = UITextField()
+
+    public let button = GreenButton()
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 0)
+        setLabel()
+        setTextField()
+        setLine()
+        setButton()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Label
+
+    private func setLabel() {
+        label.textColor = #colorLiteral(red: 0.09803921569, green: 0.168627451, blue: 0.3647058824, alpha: 1)
+        addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        let marginTop = UIScreen.main.bounds.height * 0.2669201521
+        let marginRightLeft: CGFloat = 45
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: topAnchor, constant: marginTop),
+            label.rightAnchor.constraint(equalTo: rightAnchor, constant: -marginRightLeft),
+            label.leftAnchor.constraint(equalTo: leftAnchor, constant: marginRightLeft)
+            ])
+    }
+
+    // MARK: - TextField
+    
+    private func setTextField() {
+        textField.placeholder = "Placeholder"
+        addSubview(textField)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        let marginTop: CGFloat = 5
+        let marginRightLeft: CGFloat = 45
+        NSLayoutConstraint.activate([
+            textField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: marginTop),
+            textField.rightAnchor.constraint(equalTo: rightAnchor, constant: -marginRightLeft),
+            textField.leftAnchor.constraint(equalTo: leftAnchor, constant: marginRightLeft)
+            ])
+    }
+
+    // MARK: - Line
+
+    private func setLine() {
+        line.backgroundColor = #colorLiteral(red: 0.5921568627, green: 0.7725490196, blue: 0.1411764706, alpha: 1)
+        addSubview(line)
+        line.translatesAutoresizingMaskIntoConstraints = false
+        let marginTop: CGFloat = 5
+        NSLayoutConstraint.activate([
+            line.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: marginTop),
+            line.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
+            line.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
+            line.heightAnchor.constraint(equalToConstant: 2)
+            ])
+    }
+
+    // MARK: - Button
+
+    private func setButton() {
+        button.frame = CGRect(x: 0, y: 0, width: 110, height: 33)
+        button.setTitle("Avançar", for: .normal)
+        addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let marginTop: CGFloat = 10
+        let rightMargin: CGFloat = 20
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: line.bottomAnchor, constant: marginTop),
+            button.rightAnchor.constraint(equalTo: rightAnchor, constant: -rightMargin),
+            button.heightAnchor.constraint(equalToConstant: 33),
+            button.widthAnchor.constraint(equalToConstant: 110)
+            ])
+    }
+}

@@ -401,6 +401,10 @@
             <point key="canvasLocation" x="-239.19999999999999" y="-260.41979010494754"/>
         </scene>
     </scenes>
+<<<<<<< HEAD
+    <inferredMetricsTieBreakers>
+        <segue reference="GCF-ZK-0Fi"/>
+=======
     <resources>
         <image name="Arrow" width="60" height="57"/>
         <image name="Doubt" width="236" height="236"/>
@@ -408,5 +412,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9H8-Yh-gn0"/>
+>>>>>>> signUpViewController
     </inferredMetricsTieBreakers>
 </document>
