@@ -22,13 +22,15 @@ struct Offer: Decodable {
 
 struct Cet: Decodable {
     let term: Int
+    let tax: Double
     let valueFinanced: Double
     let valueReleaded: Double
     let valueSafed: Double
     let totalValue: Double
     
     enum CodingKeys: String, CodingKey {
-        case term = "taxa"
+        case term = "prazo"
+        case tax = "taxa"
         case valueFinanced = "valor-financiado"
         case valueReleaded = "valor-liberado"
         case valueSafed = "valor-seguro"
@@ -55,7 +57,7 @@ class PortoCredApi {
     let clientIdKey = "CLIENT_ID"
     let decoder = JSONDecoder()
     
-    func getOferta(completion: @escaping (Cet?, Error?) -> Void) {
+    func getOffer(completion: @escaping (Cet?, Error?) -> Void) {
         let urlString = "https://sb-api.portocred.com.br/credito-pessoal-demo/v1/propostas/1/status"
         guard let url = URL(string: urlString) else {
             completion(nil, CocoaError(.coderInvalidValue))
