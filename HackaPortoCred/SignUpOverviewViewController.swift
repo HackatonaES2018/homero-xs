@@ -20,14 +20,22 @@ class SignUpOverviewViewController: UIViewController {
     @IBOutlet weak var mail: UILabel!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var cpf: UILabel!
-    
+
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        return dateFormatter
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        name.text = person?.name
-        birthDate.text = person?.birthDate.description
-        mail.text = person?.email
-        phone.text = person?.phoneNumber
-        cpf.text = person?.cpf
+        if let person = person {
+            name.text = person.name
+            birthDate.text = dateFormatter.string(from: person.birthDate)
+            mail.text = person.email
+            phone.text = person.phoneNumber
+            cpf.text = person.cpf
+        }
     }
 
     @IBAction func validateInfo(_ sender: UIBarButtonItem) {
