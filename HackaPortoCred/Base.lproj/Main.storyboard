@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="height" constant="38" id="gac-uD-8op"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Solicitar Crédito">
+                                <state key="normal" title="Simular Crédito">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -50,20 +50,52 @@
                                     <segue destination="xen-NO-iz2" kind="show" id="7ot-vH-Ade"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua renda mensal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnT-Dy-HgX">
+                                <rect key="frame" x="40" y="304" width="295" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.098039215690000001" green="0.16862745100000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ku8-GI-v84">
+                                <rect key="frame" x="40" y="325" width="295" height="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ue3-w6-Mh2">
+                                <rect key="frame" x="40" y="347" width="295" height="2"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.7725490196" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="YFR-8V-mOj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dEr-eh-EYP" secondAttribute="bottom" constant="160" id="CUl-uE-0tx"/>
+                            <constraint firstItem="ue3-w6-Mh2" firstAttribute="top" secondItem="Ku8-GI-v84" secondAttribute="bottom" constant="5" id="Ek2-wz-J3a"/>
+                            <constraint firstItem="Ku8-GI-v84" firstAttribute="top" secondItem="mnT-Dy-HgX" secondAttribute="bottom" id="J1J-1F-akz"/>
+                            <constraint firstItem="ue3-w6-Mh2" firstAttribute="leading" secondItem="Ku8-GI-v84" secondAttribute="leading" id="Nuh-32-eJO"/>
+                            <constraint firstItem="mnT-Dy-HgX" firstAttribute="top" secondItem="a0i-uW-4qK" secondAttribute="bottom" constant="100" id="PSj-Gq-lpY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a0i-uW-4qK" secondAttribute="trailing" constant="20" id="SAL-o5-fi4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Okv-mH-0ui" secondAttribute="bottom" constant="40" id="SIO-ih-WN1"/>
                             <constraint firstItem="dEr-eh-EYP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XKj-yz-fRT"/>
+                            <constraint firstItem="Ku8-GI-v84" firstAttribute="leading" secondItem="mnT-Dy-HgX" secondAttribute="leading" id="eDz-ji-cf2"/>
                             <constraint firstItem="a0i-uW-4qK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lJA-Vh-BLK"/>
                             <constraint firstItem="Okv-mH-0ui" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lQv-H6-agX"/>
+                            <constraint firstItem="mnT-Dy-HgX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="nwC-2r-zQX"/>
+                            <constraint firstItem="ue3-w6-Mh2" firstAttribute="trailing" secondItem="Ku8-GI-v84" secondAttribute="trailing" id="qoj-l3-yUd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mnT-Dy-HgX" secondAttribute="trailing" constant="40" id="sQ9-F2-Mdu"/>
+                            <constraint firstItem="Ku8-GI-v84" firstAttribute="trailing" secondItem="mnT-Dy-HgX" secondAttribute="trailing" id="wXs-pf-Bfg"/>
                             <constraint firstItem="a0i-uW-4qK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="xku-dw-JiW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="VT1-Uq-nGF"/>
+                    <connections>
+                        <outlet property="simulateButton" destination="dEr-eh-EYP" id="9NJ-iX-7Y0"/>
+                        <outlet property="textField" destination="Ku8-GI-v84" id="QH6-MP-9px"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -442,6 +474,6 @@
         <image name="Logo" width="1440" height="294"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9H8-Yh-gn0"/>
+        <segue reference="7ot-vH-Ade"/>
     </inferredMetricsTieBreakers>
 </document>
