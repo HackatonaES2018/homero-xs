@@ -13,7 +13,7 @@ final class VisionApi {
     
     private init() {}
     
-    func parse(_ image: UIImage, completion: @escaping (String, String) -> Void) {
+    func parse(_ image: UIImage, completion: @escaping (String, String, String) -> Void) {
         let base64 = image.pngData()!.base64EncodedString()
         let payload = """
         {
@@ -37,12 +37,12 @@ final class VisionApi {
         
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil || (response as? HTTPURLResponse)?.statusCode != 200 {
-                DispatchQueue.main.async { completion("", "") }
+                DispatchQueue.main.async { completion("", "", "") }
                 return
             }
             
             guard let data = data else {
-                DispatchQueue.main.async { completion("", "") }
+                DispatchQueue.main.async { completion("", "", "") }
                 return
             }
             
@@ -62,6 +62,7 @@ final class VisionApi {
             let allText = maxDescription as NSString
             var cpf = ""
             var birthDate = ""
+            var name = ""
             
             // cpf
             let cpfRegex = try! NSRegularExpression(pattern: "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}")
@@ -79,7 +80,16 @@ final class VisionApi {
                 birthDate = allText.substring(with: birthDateRegex.range)
             }
             
-            DispatchQueue.main.async { completion(cpf, birthDate) }
+            let nameRegex = try! NSRegularExpression(pattern: "NOME\\n.*\\nDOC\\.")
+            if let fromNameRegex = nameRegex.matches(in: allText as String,
+                                                      options: [],
+                                                      range: NSRange(location: 0, length: allText.length)).first {
+                name = allText.substring(with: fromNameRegex.range)
+                name = name.replacingOccurrences(of: "NOME\n", with: "")
+                    .replacingOccurrences(of: "\nDOC.", with: "")
+                    .capitalized
+            }
+            DispatchQueue.main.async { completion(cpf, birthDate, name) }
         }
         
         dataTask.resume()

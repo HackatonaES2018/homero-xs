@@ -61,10 +61,12 @@ class OfferViewController: UIViewController {
     
     private var cpf: String = ""
     private var birthDate: String = ""
+    private var name = ""
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSignUp" {
             let vc = segue.destination as? SignUpViewController
+            vc?.person.name = name
             vc?.person.cpf = cpf
             
             if !self.birthDate.isEmpty {
@@ -85,11 +87,12 @@ class OfferViewController: UIViewController {
             }
             
             self.lock()
-            VisionApi.shared.parse(image) { cpf, birthDate in
+            VisionApi.shared.parse(image) { cpf, birthDate, name in
                 self.unlock()
                 print(cpf, birthDate)
                 self.cpf = cpf
                 self.birthDate = birthDate
+                self.name = name
                 self.performSegue(withIdentifier: "showSignUp", sender: self)
             }
         }
