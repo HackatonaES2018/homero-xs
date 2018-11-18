@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -390,7 +391,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFr-bS-pUM" customClass="GreenButton" customModule="HackaPortoCred" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="319.5" width="200" height="40"/>
+                                <rect key="frame" x="87.5" y="298" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.59215686274509804" green="0.77254901960784317" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="eD7-v4-uaK"/>
@@ -404,14 +405,14 @@
                                     <action selector="cameraAction:" destination="5uv-9R-qqu" eventType="touchUpInside" id="lEx-Fm-gaK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agora, uma foto..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0k-pO-8tv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agora, uma foto!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0k-pO-8tv">
                                 <rect key="frame" x="50" y="139" width="275" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precisamos de um foto sua e uma foto de um documento oficial com foto para confirmar sua identidade." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoT-vM-mSq">
-                                <rect key="frame" x="20" y="225" width="335" height="64.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precisamos de um foto sua confirmar sua identidade." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoT-vM-mSq">
+                                <rect key="frame" x="20" y="225" width="335" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -446,6 +447,7 @@
                     <navigationItem key="navigationItem" id="Wfu-K2-sgQ"/>
                     <connections>
                         <segue destination="P4n-xf-WPA" kind="show" identifier="showRG" id="GCF-ZK-0Fi"/>
+                        <segue destination="EY6-vz-iN9" kind="show" identifier="showValidation" id="GIL-3A-2LZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BfO-z5-lcy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -523,7 +525,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ajf-97-jrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4383.1999999999998" y="-260.41979010494754"/>
+            <point key="canvasLocation" x="4354" y="323"/>
         </scene>
         <!--Validation View Controller-->
         <scene sceneID="BPp-R6-SrG">
@@ -878,6 +880,7 @@ Obrigado por utilizar nossos serviços.</string>
         <image name="Logo" width="1440" height="294"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JEw-5X-RbT"/>
+        <segue reference="GIL-3A-2LZ"/>
+        <segue reference="kXn-b3-fw9"/>
     </inferredMetricsTieBreakers>
 </document>

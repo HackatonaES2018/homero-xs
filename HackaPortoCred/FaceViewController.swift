@@ -11,6 +11,7 @@ import UIKit
 
 class FaceViewController: UIViewController {
     let showRG = "showRG"
+    let showValidation = "showValidation"
     
     @IBAction func cameraAction(_ sender: UIButton) {
         var config = YPImagePickerConfiguration()
@@ -56,7 +57,7 @@ class FaceViewController: UIViewController {
                     self.showAlert(title: "Erro", message: error.localizedDescription)
                 } else if let successed = successed {
                     if successed {
-                        self.performSegue(withIdentifier: self.showRG, sender: nil)
+                        self.performSegue(withIdentifier: self.showValidation, sender: nil)
                     } else {
                         self.showAlert(title: "Erro", message: "Não possivel reconhecer o rosto.")
                     }
