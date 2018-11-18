@@ -21,9 +21,8 @@ class FaceViewController: UIViewController {
         config.usesFrontCamera = true
         config.showsFilters = false
         config.shouldSaveNewPicturesToAlbum = false
-        config.albumName = "Eita Giovanna!"
-        config.screens = [.library, .photo]
-        config.startOnScreen = .library
+        config.screens = [.photo, .library]
+        config.startOnScreen = .photo
         config.showsCrop = .rectangle(ratio: (1280/720))
         config.wordings.libraryTitle = "Galeria"
         config.wordings.albumsTitle = "Álbuns"

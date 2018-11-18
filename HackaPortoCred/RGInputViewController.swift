@@ -22,7 +22,7 @@ class RGInputViewController: UIViewController {
         config.showsFilters = false
         config.shouldSaveNewPicturesToAlbum = false
         config.screens = [.photo, .library]
-        config.startOnScreen = .library
+        config.startOnScreen = .photo
         config.showsCrop = .rectangle(ratio: (1280/720))
         config.wordings.libraryTitle = "Galeria"
         config.wordings.albumsTitle = "Álbuns"
@@ -43,7 +43,7 @@ class RGInputViewController: UIViewController {
         let picker = YPImagePicker(configuration: config)
         present(picker, animated: true)
         picker.didFinishPicking { medias, status in
-            guard case .photo(p: let photo) = medias.first! else {
+            guard let ttt = medias.first, case .photo(p: let photo) = ttt else {
                 return
             }
             
@@ -56,7 +56,7 @@ class RGInputViewController: UIViewController {
                     self.showAlert(title: "Erro", message: error.localizedDescription)
                 } else if let successed = successed {
                     if successed {
-                        self.performSegue(withIdentifier: self.showRG, sender: nil)
+                        self.performSegue(withIdentifier: self.showValidation, sender: nil)
                     } else {
                         self.showAlert(title: "Erro", message: "Não possivel reconhecer o rosto.")
                     }
