@@ -47,7 +47,7 @@ class PortoCredApi {
     let clientIdKey = "CLIENT_ID"
     let decoder = JSONDecoder()
     
-    func getOferta(completion: @escaping (Offer?, Error?) -> Void) {
+    func getOferta(completion: @escaping (Cet?, Error?) -> Void) {
         let urlString = "https://sb-api.portocred.com.br/credito-pessoal-demo/v1/propostas/1/status"
         guard let url = URL(string: urlString) else {
             completion(nil, CocoaError(.coderInvalidValue))
@@ -68,9 +68,9 @@ class PortoCredApi {
             do {
                 let offerResponse = try self.decoder.decode(OfferResponse.self, from: data)
                 let cet = offerResponse.offers.first!.cet
-                
+                completion(cet, nil)
             } catch {
-                
+                completion(nil, error)
             }
         }
     }
