@@ -92,6 +92,7 @@ class UISignUpTableViewCell: UITableViewCell {
     // MARK: - Button
 
     private func setButton() {
+        button.isEnabled = false
         button.frame = CGRect(x: 0, y: 0, width: 110, height: 33)
         button.setTitle("Avançar", for: .normal)
         addSubview(button)
