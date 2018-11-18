@@ -23,6 +23,7 @@
 		8DB089C421A081E000BF1C0D /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089C321A081E000BF1C0D /* FaceViewController.swift */; };
 		8DB089C621A081F700BF1C0D /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089C521A081F700BF1C0D /* ValidationViewController.swift */; };
 		8DB8A03B21A0A2F40056F4B6 /* GreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB8A03A21A0A2F40056F4B6 /* GreenButton.swift */; };
+		91A14D7C21A125C0001DBA33 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A14D7B21A125C0001DBA33 /* QuestionsViewController.swift */; };
 		91B04CFD21A08E3F002511EF /* UISignUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B04CFC21A08E3F002511EF /* UISignUpTableViewCell.swift */; };
 		9E0B8DA521A1135C00B20A21 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0B8DA421A1135C00B20A21 /* TermsViewController.swift */; };
 		9E2809A421A0B4260037C292 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2809A321A0B4260037C292 /* SwiftyJSON.swift */; };
@@ -49,6 +50,7 @@
 		8DB089C321A081E000BF1C0D /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
 		8DB089C521A081F700BF1C0D /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
 		8DB8A03A21A0A2F40056F4B6 /* GreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenButton.swift; sourceTree = "<group>"; };
+		91A14D7B21A125C0001DBA33 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		91B04CFC21A08E3F002511EF /* UISignUpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISignUpTableViewCell.swift; sourceTree = "<group>"; };
 		9E0B8DA421A1135C00B20A21 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		9E2809A321A0B4260037C292 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */,
 				8D2DF3B121A1125900F2E7B0 /* OfferViewController.swift */,
 				9E0B8DA421A1135C00B20A21 /* TermsViewController.swift */,
+				91A14D7B21A125C0001DBA33 /* QuestionsViewController.swift */,
 			);
 			path = HackaPortoCred;
 			sourceTree = "<group>";
@@ -220,7 +223,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HackaPortoCred/Pods-HackaPortoCred-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-HackaPortoCred/Pods-HackaPortoCred-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework",
 				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
 				"${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework",
@@ -233,7 +236,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackaPortoCred/Pods-HackaPortoCred-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HackaPortoCred/Pods-HackaPortoCred-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -245,6 +248,7 @@
 			files = (
 				8DB089BB21A07FD100BF1C0D /* ViewController.swift in Sources */,
 				91B04CFD21A08E3F002511EF /* UISignUpTableViewCell.swift in Sources */,
+				91A14D7C21A125C0001DBA33 /* QuestionsViewController.swift in Sources */,
 				8DB089C421A081E000BF1C0D /* FaceViewController.swift in Sources */,
 				8D2DF3B221A1125900F2E7B0 /* OfferViewController.swift in Sources */,
 				8DB089B921A07B7400BF1C0D /* Biometrics.swift in Sources */,
@@ -405,7 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6UW4NKHZQ4;
+				DEVELOPMENT_TEAM = JM5PLAS48Y;
 				INFOPLIST_FILE = HackaPortoCred/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -424,7 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6UW4NKHZQ4;
+				DEVELOPMENT_TEAM = JM5PLAS48Y;
 				INFOPLIST_FILE = HackaPortoCred/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
