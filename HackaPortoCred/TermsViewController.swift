@@ -11,6 +11,7 @@ import UIKit
 class TermsViewController: UIViewController {
     @IBOutlet weak var agreeSwitch: UISwitch!
     @IBOutlet weak var continueButton: GreenButton!
+    @IBOutlet weak var termsTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,21 @@ class TermsViewController: UIViewController {
         continueButton.alpha = 0.5
         agreeSwitch.tintColor = #colorLiteral(red: 0.6588235294, green: 0.6588235294, blue: 0.6588235294, alpha: 1)
         agreeSwitch.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.6588235294, blue: 0.6588235294, alpha: 1)
+        
+        termsTextView.delegate = self
+        
+        self.lock()
+        termsTextView.text = ""
+        PortoCredApi.shared.getConditions { condition, _ in
+            guard let condition = condition else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.unlock()
+                self.termsTextView.text = condition.conditions
+            }
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -29,5 +45,16 @@ class TermsViewController: UIViewController {
     @IBAction func changeSwitch(_ sender: UISwitch) {
         continueButton.isEnabled = sender.isOn
         continueButton.alpha = sender.isOn ? 1 : 0.5
+    }
+}
+
+extension TermsViewController: UITextViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height) {
+            // reach bottom
+            agreeSwitch.isOn = true
+            continueButton.isEnabled = true
+            continueButton.alpha = 1
+        }
     }
 }

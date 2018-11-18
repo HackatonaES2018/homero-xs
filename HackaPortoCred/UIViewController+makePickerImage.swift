@@ -50,31 +50,58 @@ extension UIViewController {
     func lock() {
         let view: UIView = self.tabBarController?.view ?? self.navigationController?.view ?? self.view
         
+        if view.viewWithTag(9999) != nil {
+            return
+        }
+        
         let blurView = UIView()
         blurView.tag = 9999
-        blurView.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        blurView.backgroundColor = UIColor.black.withAlphaComponent(0.25)
+        blurView.alpha = 0
+        
+        let greenView = UIView()
+        greenView.backgroundColor = #colorLiteral(red: 0.5921568627, green: 0.7725490196, blue: 0.1411764706, alpha: 1)
+        greenView.layer.cornerRadius = 5
+        
         let activityIndicatorView = UIActivityIndicatorView()
         activityIndicatorView.startAnimating()
-        blurView.addSubview(activityIndicatorView)
+        
+        greenView.addSubview(activityIndicatorView)
+        blurView.addSubview(greenView)
         view.addSubview(blurView)
         view.bringSubviewToFront(blurView)
         blurView.isUserInteractionEnabled = false
         
         blurView.translatesAutoresizingMaskIntoConstraints = false
+        greenView.translatesAutoresizingMaskIntoConstraints = false
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            blurView.centerXAnchor.constraint(equalTo: activityIndicatorView.centerXAnchor),
-            blurView.centerYAnchor.constraint(equalTo: activityIndicatorView.centerYAnchor),
+            activityIndicatorView.centerXAnchor.constraint(equalTo: greenView.centerXAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: greenView.centerYAnchor),
+            greenView.widthAnchor.constraint(equalToConstant: 100),
+            greenView.heightAnchor.constraint(equalToConstant: 100),
+            greenView.centerXAnchor.constraint(equalTo: blurView.centerXAnchor),
+            greenView.centerYAnchor.constraint(equalTo: blurView.centerYAnchor),
             view.leadingAnchor.constraint(equalTo: blurView.leadingAnchor),
             view.trailingAnchor.constraint(equalTo: blurView.trailingAnchor),
             view.topAnchor.constraint(equalTo: blurView.topAnchor),
             view.bottomAnchor.constraint(equalTo: blurView.bottomAnchor),
             ])
+        
+        UIView.animate(withDuration: 0.25) {
+            blurView.alpha = 1
+        }
     }
     
     func unlock() {
         let view: UIView = self.tabBarController?.view ?? self.navigationController?.view ?? self.view
-        view.subviews.first(where: { $0.tag == 9999 })?.removeFromSuperview()
+        let blurView = view.viewWithTag(9999)
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            blurView?.alpha = 0
+        }) { _ in
+            blurView?.removeFromSuperview()
+        }
     }
 }

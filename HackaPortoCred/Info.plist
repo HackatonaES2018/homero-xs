@@ -2,12 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string> </string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>Brazil</string>
 	<key>CFBundleDisplayName</key>
-	<string>portocred</string>
+	<string>PortoCred</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -28,6 +26,8 @@
 	<string>Precisamos acessar sua galeria.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Precisamos acessar sua câmera.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string> </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Precisamos acessar sua galeria.</string>
 	<key>UILaunchStoryboardName</key>
