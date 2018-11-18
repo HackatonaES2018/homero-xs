@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zSN-uV-12D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zSN-uV-12D">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -269,7 +269,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="Od4-Af-VbI">
                             <connections>
                                 <action selector="validateInfo:" destination="wlN-pi-qdv" id="U8N-Ed-Oax"/>
-                                <segue destination="5uv-9R-qqu" kind="show" id="a8b-7k-DX2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -279,6 +278,7 @@
                         <outlet property="mail" destination="lnp-ZK-Hrk" id="9tR-Cp-an1"/>
                         <outlet property="name" destination="T41-nQ-RoD" id="2Un-jA-v6j"/>
                         <outlet property="phone" destination="aWQ-bW-8Or" id="RFJ-xY-0Rk"/>
+                        <segue destination="5uv-9R-qqu" kind="show" identifier="showFacePhoto" id="hxD-K9-AUU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOp-RI-1cQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -293,23 +293,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFr-bS-pUM">
-                                <rect key="frame" x="164" y="248" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFr-bS-pUM" customClass="GreenButton" customModule="HackaPortoCred" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="319.5" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.59215686274509804" green="0.77254901960784317" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="eD7-v4-uaK"/>
+                                    <constraint firstAttribute="height" constant="40" id="q79-W4-L7o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Escolher foto">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="cameraAction:" destination="5uv-9R-qqu" eventType="touchUpInside" id="lEx-Fm-gaK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tira uma foto do seu rosto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0k-pO-8tv">
-                                <rect key="frame" x="142" y="115" width="201" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agora, uma foto..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0k-pO-8tv">
+                                <rect key="frame" x="50" y="139" width="275" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precisamos de um foto sua e uma foto de um documento oficial com foto para confirmar sua identidade." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoT-vM-mSq">
+                                <rect key="frame" x="20" y="225" width="335" height="64.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZFr-bS-pUM" firstAttribute="top" secondItem="KoT-vM-mSq" secondAttribute="bottom" constant="30" id="8UL-7s-YiL"/>
+                            <constraint firstItem="W0k-pO-8tv" firstAttribute="top" secondItem="cgC-YU-Qx4" secondAttribute="top" constant="75" id="9Hr-qo-mg4"/>
+                            <constraint firstItem="ZFr-bS-pUM" firstAttribute="centerX" secondItem="0UA-4P-mUQ" secondAttribute="centerX" id="QTN-9W-ZnG"/>
+                            <constraint firstItem="KoT-vM-mSq" firstAttribute="top" secondItem="W0k-pO-8tv" secondAttribute="bottom" constant="50" id="RqU-4y-Cdg"/>
+                            <constraint firstItem="W0k-pO-8tv" firstAttribute="leading" secondItem="cgC-YU-Qx4" secondAttribute="leading" constant="50" id="VKt-fX-fHE"/>
+                            <constraint firstAttribute="trailing" secondItem="KoT-vM-mSq" secondAttribute="trailing" constant="20" id="j8R-vE-80N"/>
+                            <constraint firstItem="KoT-vM-mSq" firstAttribute="leading" secondItem="cgC-YU-Qx4" secondAttribute="leading" constant="20" id="vaA-2m-nIF"/>
+                            <constraint firstItem="cgC-YU-Qx4" firstAttribute="trailing" secondItem="W0k-pO-8tv" secondAttribute="trailing" constant="50" id="zZs-li-SQ3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cgC-YU-Qx4"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wfu-K2-sgQ">
@@ -335,23 +357,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJE-3I-lBG">
-                                <rect key="frame" x="187" y="227" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="... e um documento!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgu-aV-GkN">
+                                <rect key="frame" x="50" y="139" width="275" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para finalizar, precisamos de uma foto da frente do seu RG." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="458-Kf-9Xi">
+                                <rect key="frame" x="20" y="225" width="335" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJE-3I-lBG" customClass="GreenButton" customModule="HackaPortoCred" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="298" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.7725490196" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="tvp-8U-J1O"/>
+                                    <constraint firstAttribute="height" constant="40" id="wNG-8U-Zk6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Tirar foto">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="cameraAction:" destination="P4n-xf-WPA" eventType="touchUpInside" id="ODd-SQ-2G4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Digitalize seu RG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgu-aV-GkN">
-                                <rect key="frame" x="110" y="122" width="130" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.90186256170272827" green="0.90201735496520996" blue="0.90185278654098511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="p6A-ly-sDp" firstAttribute="trailing" secondItem="458-Kf-9Xi" secondAttribute="trailing" constant="20" id="8ay-YS-Df3"/>
+                            <constraint firstItem="KJE-3I-lBG" firstAttribute="centerX" secondItem="7X3-og-k19" secondAttribute="centerX" id="DH9-8N-5Fy"/>
+                            <constraint firstItem="KJE-3I-lBG" firstAttribute="top" secondItem="458-Kf-9Xi" secondAttribute="bottom" constant="30" id="G2H-bt-acv"/>
+                            <constraint firstItem="458-Kf-9Xi" firstAttribute="leading" secondItem="p6A-ly-sDp" secondAttribute="leading" constant="20" id="T2h-MG-xLy"/>
+                            <constraint firstItem="Xgu-aV-GkN" firstAttribute="leading" secondItem="p6A-ly-sDp" secondAttribute="leading" constant="50" id="dca-z1-zad"/>
+                            <constraint firstItem="458-Kf-9Xi" firstAttribute="top" secondItem="Xgu-aV-GkN" secondAttribute="bottom" constant="50" id="s3b-nk-IwI"/>
+                            <constraint firstItem="Xgu-aV-GkN" firstAttribute="top" secondItem="p6A-ly-sDp" secondAttribute="top" constant="75" id="x4I-YW-1Vo"/>
+                            <constraint firstItem="p6A-ly-sDp" firstAttribute="trailing" secondItem="Xgu-aV-GkN" secondAttribute="trailing" constant="50" id="zKn-Il-Op2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="p6A-ly-sDp"/>
                     </view>
                     <navigationItem key="navigationItem" id="JN5-pc-sXT">
@@ -407,6 +451,7 @@
         <image name="Logo" width="1440" height="294"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9H8-Yh-gn0"/>
+        <segue reference="7uI-iI-5mA"/>
+        <segue reference="7ot-vH-Ade"/>
     </inferredMetricsTieBreakers>
 </document>

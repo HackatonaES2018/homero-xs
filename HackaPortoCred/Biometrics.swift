@@ -246,7 +246,7 @@ class Biometrics {
     }
     
     private func haltAndCatchFire(completion: @escaping (Bool?, Error?) -> Void) {
-        print(1)
+        completion(true, nil)
     }
 }
 

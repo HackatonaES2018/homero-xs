@@ -32,8 +32,14 @@ class SignUpOverviewViewController: UIViewController {
 
     @IBAction func validateInfo(_ sender: UIBarButtonItem) {
         guard let person = person else { return }
+        self.lock()
         Biometrics.shared.createUser(person) { (success, error) in
-            
+            self.unlock()
+            if success ?? false, error == nil {
+                self.performSegue(withIdentifier: "showFacePhoto", sender: self)
+            } else {
+                self.showAlert(title: "Oops!", message: "Algo errado aconteceu. Tente novamente mais tarde.")
+            }
         }
     }
 }

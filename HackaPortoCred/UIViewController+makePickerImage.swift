@@ -46,3 +46,35 @@ extension UIViewController {
     }
 }
 
+extension UIViewController {
+    func lock() {
+        let view: UIView = self.tabBarController?.view ?? self.navigationController?.view ?? self.view
+        
+        let blurView = UIView()
+        blurView.tag = 9999
+        blurView.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        let activityIndicatorView = UIActivityIndicatorView()
+        activityIndicatorView.startAnimating()
+        blurView.addSubview(activityIndicatorView)
+        view.addSubview(blurView)
+        view.bringSubviewToFront(blurView)
+        blurView.isUserInteractionEnabled = false
+        
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            blurView.centerXAnchor.constraint(equalTo: activityIndicatorView.centerXAnchor),
+            blurView.centerYAnchor.constraint(equalTo: activityIndicatorView.centerYAnchor),
+            view.leadingAnchor.constraint(equalTo: blurView.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: blurView.trailingAnchor),
+            view.topAnchor.constraint(equalTo: blurView.topAnchor),
+            view.bottomAnchor.constraint(equalTo: blurView.bottomAnchor),
+            ])
+    }
+    
+    func unlock() {
+        let view: UIView = self.tabBarController?.view ?? self.navigationController?.view ?? self.view
+        view.subviews.first(where: { $0.tag == 9999 })?.removeFromSuperview()
+    }
+}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		642EDB2DBCD686468501189E /* Pods_HackaPortoCred.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE5F446B80981B08CECDD0D /* Pods_HackaPortoCred.framework */; };
 		8D06218521A08749001672E3 /* UIViewController+makePickerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D06218421A08749001672E3 /* UIViewController+makePickerImage.swift */; };
 		8D2DF3B021A0DCCC00F2E7B0 /* PortoCredApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */; };
 		8DB089A721A07B3400BF1C0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB089A621A07B3400BF1C0D /* AppDelegate.swift */; };
@@ -26,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		123A428984EDE03F6FF679EB /* Pods-HackaPortoCred.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackaPortoCred.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackaPortoCred/Pods-HackaPortoCred.release.xcconfig"; sourceTree = "<group>"; };
+		1E3BF6CA3093A63C30A6B741 /* Pods-HackaPortoCred.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackaPortoCred.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackaPortoCred/Pods-HackaPortoCred.debug.xcconfig"; sourceTree = "<group>"; };
+		7FE5F446B80981B08CECDD0D /* Pods_HackaPortoCred.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackaPortoCred.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D06218421A08749001672E3 /* UIViewController+makePickerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+makePickerImage.swift"; sourceTree = "<group>"; };
 		8D2DF3AF21A0DCCC00F2E7B0 /* PortoCredApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortoCredApi.swift; sourceTree = "<group>"; };
 		8DB089A321A07B3400BF1C0D /* HackaPortoCred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackaPortoCred.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,17 +55,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				642EDB2DBCD686468501189E /* Pods_HackaPortoCred.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F36486DDEA54004A42618CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E3BF6CA3093A63C30A6B741 /* Pods-HackaPortoCred.debug.xcconfig */,
+				123A428984EDE03F6FF679EB /* Pods-HackaPortoCred.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7CC2C6B9545015BEA93DD236 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FE5F446B80981B08CECDD0D /* Pods_HackaPortoCred.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8DB0899A21A07B3400BF1C0D = {
 			isa = PBXGroup;
 			children = (
 				8DB089A521A07B3400BF1C0D /* HackaPortoCred */,
 				8DB089A421A07B3400BF1C0D /* Products */,
+				6F36486DDEA54004A42618CE /* Pods */,
+				7CC2C6B9545015BEA93DD236 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8DB089B521A07B3500BF1C0D /* Build configuration list for PBXNativeTarget "HackaPortoCred" */;
 			buildPhases = (
+				59F773AFD756CE20D014DE34 /* [CP] Check Pods Manifest.lock */,
 				8DB0899F21A07B3400BF1C0D /* Sources */,
 				8DB089A021A07B3400BF1C0D /* Frameworks */,
 				8DB089A121A07B3400BF1C0D /* Resources */,
+				5F87BDAC4D13531C783D4F95 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -162,6 +188,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59F773AFD756CE20D014DE34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackaPortoCred-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F87BDAC4D13531C783D4F95 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HackaPortoCred/Pods-HackaPortoCred-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework",
+				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
+				"${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PryntTrimmerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YPImagePicker.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackaPortoCred/Pods-HackaPortoCred-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8DB0899F21A07B3400BF1C0D /* Sources */ = {
@@ -324,6 +393,7 @@
 		};
 		8DB089B621A07B3500BF1C0D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E3BF6CA3093A63C30A6B741 /* Pods-HackaPortoCred.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -342,6 +412,7 @@
 		};
 		8DB089B721A07B3500BF1C0D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 123A428984EDE03F6FF679EB /* Pods-HackaPortoCred.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
