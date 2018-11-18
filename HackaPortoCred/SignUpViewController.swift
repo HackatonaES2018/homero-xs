@@ -169,6 +169,14 @@ extension SignUpViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.button.isEnabled = true
                 cell.button.alpha = 1
             }
+            
+            if !cell.textField.text!.isValidEmail() {
+                cell.button.isEnabled = false
+                cell.button.alpha = 0.6
+            } else {
+                cell.button.isEnabled = true
+                cell.button.alpha = 1
+            }
         } else if indexPath.row == 3 {
             cell.title = "Celular"
             cell.textField.placeholder = "(00)00000-0000"
@@ -259,6 +267,16 @@ extension SignUpViewController: UITextFieldDelegate {
             cell.button.isEnabled = true
             cell.button.alpha = 1
         }
+        
+        if textField.tag == 2 {
+            if !textField.text!.isValidEmail() {
+                cell.button.isEnabled = false
+                cell.button.alpha = 0.6
+            } else {
+                cell.button.isEnabled = true
+                cell.button.alpha = 1
+            }
+        }
 
         if textField.tag == 4 {
             textField.text = textField.text?.replacingOccurrences(of: ".", with: "")
@@ -336,6 +354,13 @@ extension String {
             numbers[9] * 2 ) % 11
         let dv2 = soma2 > 9 ? 0 : soma2
         return dv1 == numbers[9] && dv2 == numbers[10]
+    }
+
+    func isValidEmail() -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: self)
     }
 }
 
