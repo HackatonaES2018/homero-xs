@@ -46,6 +46,14 @@ struct Condition: Decodable {
     }
 }
 
+struct Situation: Decodable {
+    let message: String
+    
+    enum CodingKeys: String, CodingKey {
+        case message = "situacao"
+    }
+}
+
 struct CustomError: Error {
     
 }
@@ -114,4 +122,32 @@ class PortoCredApi {
         }.resume()
     }
     
+    func confirmProposal(completion: @escaping (Situation?, Error?) -> Void) {
+        let urlString = "https://sb-api.portocred.com.br/credito-pessoal-demo/v1/propostas/16/efetivacao"
+        guard let url = URL(string: urlString) else {
+            completion(nil, CocoaError(.coderInvalidValue))
+            return
+        }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "PATCH"
+        urlRequest.allHTTPHeaderFields = [clientIdKey: clientId]
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard let data = data else {
+                if let error = error {
+                    completion(nil, error)
+                } else {
+                    completion(nil, CustomError())
+                }
+                return
+            }
+            
+            do {
+                let situation = try self.decoder.decode(Situation.self, from: data)
+                completion(situation, nil)
+            } catch {
+                completion(nil, error)
+            }
+        }.resume()
+    }
 }
